@@ -82,6 +82,7 @@ class ExperimentRunner:
         input_id: str,
         target_age: int,
         source_age: Optional[int] = None,
+        gender_hint: Optional[str] = None,
         seed: int = 42,
         steps: int = 15,
         execute_cyclic: bool = False
@@ -89,9 +90,14 @@ class ExperimentRunner:
         """
         Runs a single controlled trial and computes all metrics.
         """
-        logger.info(f"Starting Trial: {experiment_id} | Condition: {condition} | Input: {input_id} | Age: {source_age}->{target_age}")
+        logger.info(f"Starting Trial: {experiment_id} | Condition: {condition} | Input: {input_id} | Age: {source_age}->{target_age} | Gender: {gender_hint}")
         timestamp = datetime.now().isoformat()
         input_hash = compute_image_sha256(source_image)
+
+        # Save canonical source reference image for side-by-side verification
+        ref_path = os.path.join(self.output_dir, f"{input_id}_source_reference.png")
+        if not os.path.exists(ref_path):
+            save_image(source_image, ref_path)
 
         # Map condition to generation parameters
         if condition == "generic_baseline":
@@ -122,6 +128,7 @@ class ExperimentRunner:
                 source_image=source_image,
                 target_age=target_age,
                 source_age=source_age,
+                gender_hint=gender_hint,
                 mode=mode,
                 strength=strength,
                 guidance_scale=guidance,
@@ -129,8 +136,8 @@ class ExperimentRunner:
                 seed=seed
             )
 
-            # Save generated image
-            img_filename = f"{experiment_id}_{condition}_age{target_age}_seed{seed}.png"
+            # Save generated image with unambiguous descriptive filename
+            img_filename = f"{input_id}_{condition}_age{target_age}_seed{seed}.png"
             output_abs_path = os.path.join(self.output_dir, img_filename)
             save_image(gen_result.generated_image, output_abs_path)
             output_rel_path = os.path.relpath(output_abs_path, os.getcwd())
@@ -142,6 +149,7 @@ class ExperimentRunner:
                     source_image=gen_result.generated_image,
                     target_age=source_age,
                     source_age=target_age,
+                    gender_hint=gender_hint,
                     mode=mode,
                     strength=gen_result.strength,
                     guidance_scale=gen_result.guidance_scale,
@@ -149,7 +157,7 @@ class ExperimentRunner:
                     seed=seed + 1
                 )
                 cyclic_img = cyc_result.generated_image
-                cyc_filename = f"{experiment_id}_{condition}_cyclic_recon_age{source_age}.png"
+                cyc_filename = f"{input_id}_{condition}_cyclic_recon_age{source_age}_seed{seed}.png"
                 save_image(cyclic_img, os.path.join(self.output_dir, cyc_filename))
 
             # 3. Quantitative Evaluation

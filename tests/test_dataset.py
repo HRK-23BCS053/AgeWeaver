@@ -5,8 +5,12 @@ and strict no-silent-fallback guarantees.
 
 import unittest
 import os
+import sys
 import tempfile
 from PIL import Image
+
+sys.path.insert(0, os.path.abspath("src"))
+sys.path.insert(0, os.path.abspath("."))
 
 from ageweaver.dataset import DatasetManager, CelebrityEntry
 
@@ -27,8 +31,10 @@ class TestDataset(unittest.TestCase):
         entry = self.dm.get_celebrity("ID001_RAJESH_KHANNA")
         self.assertIsInstance(entry, CelebrityEntry)
         self.assertEqual(entry.display_name, "Rajesh Khanna")
-        self.assertEqual(entry.license, "CC BY 3.0")
-        self.assertEqual(entry.attribution, "Bollywood Hungama")
+        self.assertEqual(entry.license, "GODL-India")
+        self.assertEqual(entry.attribution, "India Post, Government of India")
+        self.assertEqual(entry.reference_age, 28)
+        self.assertEqual(entry.quality_status, "verified_young_reference")
 
     def test_get_celebrity_unknown_raises_keyerror(self):
         with self.assertRaises(KeyError):
@@ -64,6 +70,29 @@ class TestDataset(unittest.TestCase):
         finally:
             if os.path.exists(tmp_path):
                 os.remove(tmp_path)
+
+    def test_audit_dataset_distinction(self):
+        """Verifies that dataset auditing cleanly separates manifest (100) from downloaded and young references."""
+        from scripts.audit_dataset import audit_dataset
+        audit_res = audit_dataset()
+        summary = audit_res["summary"]
+        self.assertEqual(summary["total_manifest_entries"], 100)
+        self.assertGreaterEqual(summary["images_downloaded_count"], 2)
+        self.assertGreaterEqual(summary["verified_young_references_count"], 2)
+        self.assertIn("ID001_RAJESH_KHANNA", summary["verified_young_references"])
+        self.assertIn("ID009_DEEPIKA_PADUKONE", summary["verified_young_references"])
+
+    def test_verified_young_reference_has_young_age(self):
+        """Verify that young references are in the 20-35 age range."""
+        rk = self.dm.get_celebrity("ID001_RAJESH_KHANNA")
+        self.assertEqual(rk.quality_status, "verified_young_reference")
+        self.assertIsNotNone(rk.reference_age)
+        self.assertTrue(20 <= rk.reference_age <= 35)
+
+        dp = self.dm.get_celebrity("ID009_DEEPIKA_PADUKONE")
+        self.assertEqual(dp.quality_status, "verified_young_reference")
+        self.assertIsNotNone(dp.reference_age)
+        self.assertTrue(20 <= dp.reference_age <= 35)
 
 if __name__ == "__main__":
     unittest.main()

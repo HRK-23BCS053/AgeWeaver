@@ -5,19 +5,40 @@
       "identity_id": "ID001_RAJESH_KHANNA",
       "display_name": "Rajesh Khanna",
       "local_path": "data/images\\ID001_RAJESH_KHANNA.jpg",
-      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rajesh_Khanna_Profile.jpg",
-      "direct_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rajesh_Khanna_Profile.jpg",
-      "license": "CC BY 3.0",
-      "attribution": "Bollywood Hungama",
-      "sha256": "9f7ac48006d56021",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Rajesh_Khanna_2013_stamp_of_India_%28cropped%29.jpg",
+      "direct_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Rajesh_Khanna_2013_stamp_of_India_%28cropped%29.jpg",
+      "license": "GODL-India",
+      "attribution": "India Post, Government of India",
+      "sha256": "702bd522419f1ccd",
       "original_format": "JPEG",
       "resolution": [
-        298,
-        439
+        302,
+        403
       ],
       "face_detected": true,
-      "estimated_age": 55.0,
-      "det_score": 0.8497971296310425
+      "estimated_age": 41.0,
+      "det_score": 0.7845891714096069
+    }
+  },
+  "ID009_DEEPIKA_PADUKONE": {
+    "success": true,
+    "details": {
+      "identity_id": "ID009_DEEPIKA_PADUKONE",
+      "display_name": "Deepika Padukone",
+      "local_path": "data/images\\ID009_DEEPIKA_PADUKONE.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Deepika_Padukone_%28face%29.jpg",
+      "direct_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Deepika_Padukone_%28face%29.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Bollywood Hungama",
+      "sha256": "d6f644e66d13d335",
+      "original_format": "JPEG",
+      "resolution": [
+        200,
+        200
+      ],
+      "face_detected": true,
+      "estimated_age": 28.0,
+      "det_score": 0.8083125352859497
     }
   }
 }

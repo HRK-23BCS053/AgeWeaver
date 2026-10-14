@@ -4,8 +4,12 @@ Unit tests for AgeWeaver configuration module.
 
 import unittest
 import os
+import sys
 import tempfile
 import yaml
+
+sys.path.insert(0, os.path.abspath("src"))
+sys.path.insert(0, os.path.abspath("."))
 
 from ageweaver.config import AgeWeaverConfig, PipelineConfig, PromptConfig, EvaluationConfig
 

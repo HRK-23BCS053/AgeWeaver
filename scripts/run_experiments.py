@@ -31,7 +31,8 @@ def main():
     parser = argparse.ArgumentParser(description="AgeWeaver Controlled Comparative Experiments")
     parser.add_argument("--identity-id", type=str, default=None, help="Celebrity identity ID from manifest (e.g. ID001_RAJESH_KHANNA)")
     parser.add_argument("--image", type=str, default=None, help="Explicit path to an image file")
-    parser.add_argument("--target-ages", type=str, default="45,68", help="Comma-separated target ages (e.g. '45,68')")
+    parser.add_argument("--source-age", type=int, default=None, help="Documented chronological source age of the reference subject (e.g. 28)")
+    parser.add_argument("--target-ages", type=str, default="45,60,70", help="Comma-separated older target ages (default: '45,60,70')")
     parser.add_argument("--steps", type=int, default=15, help="Diffusion inference steps")
     parser.add_argument("--seed", type=int, default=42, help="Fixed random seed for controlled comparisons")
     parser.add_argument("--allow-synthetic", action="store_true", help="Allow fallback to synthetic identity if no real identity/image specified")
@@ -55,12 +56,14 @@ def main():
     # 2. Source Image Resolution (Strict No Silent Fallback)
     source_image = None
     input_id = None
+    manifest_entry = None
     dm = DatasetManager()
 
     if args.identity_id:
         input_id = args.identity_id
         logger.info(f"Target identity specified from manifest: {args.identity_id}")
         try:
+            manifest_entry = dm.get_celebrity(args.identity_id)
             img_path = dm.get_image_path(args.identity_id, auto_download=True)
             logger.info(f"Loaded real celebrity image from: {img_path}")
             source_image = Image.open(img_path).convert("RGB")
@@ -104,14 +107,38 @@ def main():
         logger.error(f"Source face detection failed on {input_id}: {src_res.error_message}")
         sys.exit(1)
 
-    source_age = int(round(src_res.estimated_age)) if src_res.estimated_age else 25
-    gender = src_res.gender or "person"
-    logger.info(f"Source Face Verified: Detected=True, Est. Age={src_res.estimated_age:.1f} yrs (rounded: {source_age}), Gender={gender}, Confidence={src_res.det_score:.3f}")
+    # Determine chronological vs automated age
+    cnn_est_age = src_res.estimated_age
+    if args.source_age is not None:
+        source_age = args.source_age
+        age_source_note = f"Explicit CLI argument: {source_age}"
+    elif manifest_entry and manifest_entry.reference_age is not None:
+        source_age = manifest_entry.reference_age
+        age_source_note = f"Documented historical reference age: {source_age} (Capture Year: {manifest_entry.capture_year})"
+    else:
+        source_age = int(round(cnn_est_age)) if cnn_est_age else 25
+        age_source_note = f"Automated CNN estimate: {source_age}"
+
+    gender = (manifest_entry.gender if manifest_entry and manifest_entry.gender else (src_res.gender or "person"))
+
+    logger.info(f"Source Subject: {input_id}")
+    logger.info(f"  Chronological / Reference Age : {source_age} ({age_source_note})")
+    logger.info(f"  Automated CNN Estimate        : {cnn_est_age:.1f} yrs (genderage.onnx)")
+    logger.info(f"  Gender Hint                   : {gender}")
+    logger.info(f"  Detection Confidence          : {src_res.det_score:.3f}")
 
     # 4. Controlled Experiment Matrix
     target_ages = [int(a.strip()) for a in args.target_ages.split(",") if a.strip()]
-    conditions = ["generic_baseline", "structured_prompt", "adaptive_control"]
 
+    # Validate that every target age is older than input age
+    for tgt_age in target_ages:
+        if tgt_age <= source_age:
+            raise ValueError(
+                f"Experimental Design Violation: Target age ({tgt_age}) must be strictly older "
+                f"than verified source age ({source_age}) for age-progression research."
+            )
+
+    conditions = ["generic_baseline", "structured_prompt", "adaptive_control"]
     results = []
 
     for tgt_age in target_ages:
@@ -127,6 +154,7 @@ def main():
                 input_id=input_id,
                 target_age=tgt_age,
                 source_age=source_age,
+                gender_hint=gender,
                 seed=args.seed,
                 steps=args.steps,
                 execute_cyclic=is_cyclic

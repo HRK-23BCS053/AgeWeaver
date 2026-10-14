@@ -3,8 +3,13 @@ Unit tests for AgeWeaver evaluation and metrics module.
 """
 
 import unittest
+import os
+import sys
 import numpy as np
 from PIL import Image
+
+sys.path.insert(0, os.path.abspath("src"))
+sys.path.insert(0, os.path.abspath("."))
 
 from ageweaver.identity import FaceIdentityAnalyzer
 from ageweaver.evaluation import EvaluationMetrics, AgeWeaverEvaluator

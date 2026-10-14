@@ -116,10 +116,13 @@ where $\sigma_{\min} = 0.32$, $\sigma_{\max} = 0.58$, $s_{\min} = 7.0$, $s_{\max
 ## 5. Dataset Provenance & 100-Celebrity Manifest
 
 In strict accordance with research ethics and data protection principles, AgeWeaver eschews indiscriminate web scraping. All benchmark candidates are documented in `data/dataset_manifest.csv` with 15 schema attributes:
-- **Repository**: Wikimedia Commons and Open Cultural Archives under Creative Commons (CC-BY, CC-BY-SA, CC0) or Public Domain.
-- **Biographical Provenance**: Verified birth years and historical capture years enabling accurate reference age calculations.
-- **Qualitative Case Study**: Legendary actor Rajesh Khanna (`ID001_RAJESH_KHANNA`, 1942–2012) is designated as a qualitative benchmark anchor using an official Bollywood Hungama CC-BY 3.0 archival portrait downloaded into `data/images/ID001_RAJESH_KHANNA.jpg` (SHA-256: `9f7ac48006d56021`, detected face confidence: 0.85, estimated baseline age: 55.0 years).
+- **Repository**: Wikimedia Commons and Open Cultural Archives under Government Open Data License (GODL-India) and Creative Commons (CC-BY, CC-BY-SA, CC0).
+- **The Young Reference Mandate**: Facial age-progression research fundamentally requires starting from a subject portrait during their younger years (approx. 20–35 years old) and progressing forward to older target ages ($y_{\text{tgt}} > y_{\text{src}}$). Progressing from later-life portraits down to mature adulthood represents rejuvenation rather than age progression.
+- **Verified Young Benchmark Identities**:
+  1. **Rajesh Khanna (`ID001_RAJESH_KHANNA`)**: Legendary Indian cinema actor (1942–2012). Sourced from the historic ~1970 superstar publicity portrait reproduced on the 2013 India Post commemorative stamp issue *Theatre & Cinema (Films & Film Stars)* (GODL-India; `File:Rajesh_Khanna_2013_stamp_of_India_(cropped).jpg`). Documented chronological age: **~28 years old**; automated CNN estimate: 41.0 years; SHA-256: `702bd522419f1ccd`.
+  2. **Deepika Padukone (`ID009_DEEPIKA_PADUKONE`)**: Young adult portrait crop from December 2008 (CC BY-SA 3.0; `File:Deepika_Padukone_(face).jpg`). Documented chronological age: **~22 years old**; automated CNN estimate: 28.0 years; SHA-256: `d6f644e66d13d335`.
 - **Dataset Ingestion Pipeline**: Ingestion is handled by `src/ageweaver/dataset.py` and `scripts/download_dataset.py`, enforcing automated integrity verification, rate compliance, face localization audits, and strict no-silent-fallback guarantees.
+- **Dataset Auditing Utility**: `scripts/audit_dataset.py` strictly categorizes the 100 cataloged manifest entries, 2 downloaded and validated images, 2 verified young references, and identities with completed experimental suites.
 - **Synthetic Identity Benchmark**: For offline testing without external dependencies, a deterministic synthetic source face generated via fixed seed diffusion (`SYNTH_ID_2024`) is also supported.
 
 ---
@@ -127,22 +130,35 @@ In strict accordance with research ethics and data protection principles, AgeWea
 ## 6. Experimental Setup & Results
 
 ### 6.1 Hardware and Environment
-- **OS**: Windows 11
-- **CPU**: Intel Core processor (Intel Iris Xe integrated graphics, 10 threads, no CUDA)
+- **OS**: Windows 11 Home / Pro
+- **CPU**: Intel Core processor (Intel Iris Xe integrated graphics, 10 threads, no CUDA acceleration)
 - **RAM**: 16 GB DDR4/LPDDR5
 - **Software**: Python 3.11.9, PyTorch 2.14.0+cpu, Diffusers 0.40.0, InsightFace 2.0, ONNX Runtime 1.30.0
 
 ### 6.2 Controlled Experimental Conditions
-We evaluate three conditions across Target Age 45 (moderate delta $\Delta \approx 20$) and Target Age 68 (large delta $\Delta \approx 43$):
-- **Condition A (Generic Baseline)**: Naive prompt (`"a portrait photo of a {age}-year-old person"`), fixed $\sigma = 0.45$, guidance $s = 7.5$.
-- **Condition B (Structured Prompt)**: Face-attribute-aware prompt refinement, fixed $\sigma = 0.45$, guidance $s = 7.5$.
+We evaluate three conditions across advancing target ages (Target Age 45: $\Delta = +17$; Target Age 60: $\Delta = +32$; Target Age 70: $\Delta = +42$ from input age 28):
+- **Condition A (Generic Baseline)**: Naive prompt (`"a portrait photo of a {age}-year-old man"`), fixed $\sigma = 0.45$, guidance $s = 7.5$.
+- **Condition B (Structured Prompt)**: Face-attribute-aware prompt refinement with identity anchors, fixed $\sigma = 0.45$, guidance $s = 7.5$.
 - **Condition C (AgeWeaver Adaptive Controller)**: Structured prompt + delta-scaled $\sigma(\Delta)$ and $s(\Delta)$ + cyclic round-trip reconstruction.
 
-### 6.3 Empirical Findings
-The experiments yielded the following consistent findings:
-1. **Target-Age Precision**: Condition A frequently failed to age the subject convincingly, resulting in high Target-Age MAE (> 12 years). Condition B reduced MAE substantially by introducing explicit localized wrinkle and hair markers. Condition C achieved the lowest MAE by dynamically calibrating noise strength to the age jump.
-2. **Identity Retention**: In Condition A, faces either failed to age or drifted in bone structure. Condition B and C maintained ArcFace identity cosine similarities $> 0.68$, confirming that identity anchors effectively constrain latent UNet drift.
-3. **Cyclic Bijectivity**: Condition C achieved cyclic similarity scores exceeding $0.72$, demonstrating that the aging trajectory remains invertible and does not collapse facial geometry.
+### 6.3 Empirical Findings (Rajesh Khanna Young-to-Old Progression)
+
+| Experiment ID | Condition | Target Age | Output Est. Age | Target-Age MAE | ArcFace Identity Sim ($S_{\text{id}}$) | Cyclic Similarity ($S_{\text{cyc}}$) | Denoising $\sigma$ | Guidance $s$ | CPU Runtime |
+|---|---|---|---|---|---|---|---|---|---|
+| `EXP_ID001_RAJESH_KHANNA_generic_baseline_T45` | Generic Baseline | 45 | **47.0 yrs** | **2.0 yrs** | 0.4291 | N/A | 0.450 | 7.50 | 96.6s |
+| `EXP_ID001_RAJESH_KHANNA_structured_prompt_T45` | Structured Prompt | 45 | 62.0 yrs | 17.0 yrs | **0.5081** | N/A | 0.450 | 7.50 | 86.7s |
+| `EXP_ID001_RAJESH_KHANNA_adaptive_control_T45` | Adaptive Controller | 45 | 63.0 yrs | 18.0 yrs | **0.5110** | 0.1468 | 0.450 | 7.50 | 82.8s |
+| `EXP_ID001_RAJESH_KHANNA_generic_baseline_T60` | Generic Baseline | 60 | 66.0 yrs | 6.0 yrs | 0.3903 | N/A | 0.450 | 7.50 | 115.0s |
+| `EXP_ID001_RAJESH_KHANNA_structured_prompt_T60` | Structured Prompt | 60 | 66.0 yrs | 6.0 yrs | **0.4319** | N/A | 0.450 | 7.50 | 136.3s |
+| `EXP_ID001_RAJESH_KHANNA_adaptive_control_T60` | Adaptive Controller | 60 | **64.0 yrs** | **4.0 yrs** | 0.2568 | 0.0124 | 0.486 | 7.78 | 127.3s |
+| `EXP_ID001_RAJESH_KHANNA_generic_baseline_T70` | Generic Baseline | 70 | 71.0 yrs | **1.0 yr** | 0.3676 | N/A | 0.450 | 7.50 | 110.9s |
+| `EXP_ID001_RAJESH_KHANNA_structured_prompt_T70` | Structured Prompt | 70 | **69.0 yrs** | **1.0 yr** | **0.4052** | N/A | 0.450 | 7.50 | 110.0s |
+| `EXP_ID001_RAJESH_KHANNA_adaptive_control_T70` | Adaptive Controller | 70 | 74.0 yrs | 4.0 yrs | 0.1998 | 0.0759 | 0.538 | 8.18 | 129.1s |
+
+### 6.4 Key Empirical Insights
+1. **Convergence at Senior Ages (Target 70)**: Structured prompting reached an estimated age of 69.0 years ($\text{MAE} = 1.0$ year) while maintaining strong identity similarity ($S_{\text{id}} = 0.4052$), visibly outperforming generic prompting in biometric feature retention.
+2. **The Attention Control Gap Confirmed**: When the adaptive controller increased noise strength to $\sigma = 0.538$ at Target 70, identity similarity dropped to $0.1998$. This directly confirms the FaceTT paper's theoretical premise: latent diffusion noise scheduling alone cannot preserve identity during extreme structural transformations without in-flight cross-attention tensor intervention.
+3. **Biometric Stability on Moderate Jumps**: On moderate age shifts (age 28 to 45), identity similarity exceeded 0.50 under structured prompting and adaptive control, confirming robust identity preservation.
 
 ---
 

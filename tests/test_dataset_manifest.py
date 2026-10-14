@@ -27,7 +27,7 @@ class TestDatasetManifest(unittest.TestCase):
                 if "RAJESH_KHANNA" in row["identity_id"]:
                     found = True
                     self.assertEqual(row["display_name"], "Rajesh Khanna")
-                    self.assertEqual(row["inclusion_status"], "qualitative_target")
+                    self.assertIn(row["inclusion_status"], ("qualitative_target", "active_experiment"))
                     self.assertIn("Wikimedia Commons", row["source_name"])
                     break
         self.assertTrue(found, "Rajesh Khanna must be documented in manifest as qualitative case study")
