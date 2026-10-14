@@ -1,0 +1,23 @@
+# AgeWeaver Python Environment Dependencies
+# Verified on Windows 11 (Python 3.11.9, CPU-only Intel Iris Xe)
+
+# Core Deep Learning & Diffusion
+torch==2.14.0+cpu
+torchvision==0.29.0+cpu
+diffusers==0.40.0
+transformers==5.17.0
+accelerate==1.15.0
+
+# Face Recognition, Detection & Attribute Estimation
+insightface==2.0
+onnxruntime==1.30.0
+opencv-python==5.0.0
+
+# Image & Scientific Computing
+Pillow==12.3.0
+numpy==2.4.6
+scipy==1.17.1
+
+# Configuration & Utilities
+PyYAML==6.0.3
+

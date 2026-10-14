@@ -1,0 +1,36 @@
+# AgeWeaver Default Configuration
+project_name: AgeWeaver
+version: 0.1.0
+output_dir: outputs
+data_dir: data
+
+pipeline:
+  model_id: runwayml/stable-diffusion-v1-5
+  device: cpu
+  local_files_only: true
+  num_inference_steps: 15
+  guidance_scale: 7.5
+  default_strength: 0.45
+  image_size: 512
+  seed: 42
+  use_adaptive_control: true
+  adaptive_strength_min: 0.32
+  adaptive_strength_max: 0.58
+  guidance_min: 6.5
+  guidance_max: 8.5
+
+prompt:
+  mode: structured
+  include_hair_markers: true
+  include_skin_markers: true
+  include_identity_anchors: true
+  custom_positive_suffix: ""
+  negative_prompt: "deformed, distorted, disfigured, blurry, bad anatomy, cartoon, 3d render, illustration, plastic skin, oversmoothed, low quality, unnatural eyes, different facial structure, changed ethnicity"
+
+evaluation:
+  insightface_model: buffalo_l
+  det_size: 320
+  compute_cyclic: true
+  cyclic_steps: 15
+  compute_age_mae: true
+

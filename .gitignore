@@ -22,11 +22,12 @@ __pycache__/
 *.pt
 *.onnx
 
-# Dataset and generated outputs
-data/
+# Dataset and generated outputs (strictly exclude heavy binaries/images)
+data/images/
 datasets/
-outputs/
-generated/
+*.png
+*.jpg
+*.jpeg
 checkpoints/
 
 # Jupyter
