@@ -50,17 +50,19 @@ The repository has been structured cleanly into modular libraries:
 - `src/ageweaver/prompts.py`: Generic and structured prompt generators across 6 age brackets.
 - `src/ageweaver/pipeline.py`: Memory-efficient Diffusers pipeline with CPU float32 inference and adaptive delta control.
 - `src/ageweaver/identity.py`: InsightFace wrapper extracting normalized 512-d ArcFace embeddings and age estimates.
+- `src/ageweaver/dataset.py`: DatasetManager handling manifest parsing, secure Wikimedia downloads, PIL integrity checks, face audits, and strict no-silent-fallback guarantees.
 - `src/ageweaver/evaluation.py`: Evaluator computing identity similarity, target MAE, and cyclic similarity.
 - `src/ageweaver/experiment.py`: Experiment harness generating auditable CSV and JSONL experiment logs.
 - `src/ageweaver/utils.py`: Deterministic seed controllers, EXIF transposing, and SHA-256 image hashing.
 
 ### 3.2 Automated Testing
-- 18 unit tests implemented in `tests/`:
+- 25 unit tests implemented in `tests/`:
   - `test_config.py`: Parameter validation, invalid input rejection, YAML round-tripping.
   - `test_prompts.py`: Generic prompt, structured prompt, age bracket mapping, negative prompts.
   - `test_metrics.py`: ArcFace cosine similarity (identical, orthogonal, opposing vectors, None handling), missing face detection handling.
   - `test_dataset_manifest.py`: Manifest schema, 100 identity integrity, Rajesh Khanna case study presence.
-- Test execution result: **18 tests passed, 0 failures, 0 errors in 10.86 seconds**.
+  - `test_dataset.py`: Manifest parsing, identity selection, strict no-silent-fallback guarantees, corrupted image rejection, and URL resolution.
+- Test execution result: **25 tests passed, 0 failures, 0 errors in 3.62 seconds**.
 
 ### 3.3 Dataset Manifest
 - Created `data/dataset_manifest.csv` cataloging 100 celebrity identities with:
@@ -79,15 +81,18 @@ The repository has been structured cleanly into modular libraries:
 
 ## 4. Current Experimental Findings & Observations
 
-Controlled comparative experiments were executed across Target Age 45 (mature adult) and Target Age 68 (senior) using a deterministic synthetic portrait benchmark ($y_{\text{src}} \approx 25$):
+Controlled comparative experiments were executed across Target Age 45 and Target Age 68 on real historical celebrity portrait Rajesh Khanna (`ID001_RAJESH_KHANNA`, baseline detected age: **55.0 years**, SHA-256: `9f7ac48006d56021`):
 
-| Condition | Target Age | Mean ArcFace Identity Sim ($S_{\text{id}}$) | Target-Age Error (MAE) | Cyclic Identity Sim ($S_{\text{cyc}}$) | Observations |
-|---|---|---|---|---|---|
-| **Condition A: Generic Baseline** | 45 & 68 | Moderate (~0.58–0.62) | High (~12–16 yrs) | N/A | Naive prompt fails to guide fine facial creases; faces often remain too youthful or drift in facial geometry. |
-| **Condition B: Structured Prompt** | 45 & 68 | High (~0.68–0.74) | Moderate (~6–9 yrs) | N/A | Identity anchors preserve bone structure and eye shape; skin texture markers create authentic wrinkles. |
-| **Condition C: Adaptive Controller** | 45 & 68 | **Optimal (> 0.70)** | **Lowest (< 6 yrs)** | **High (> 0.72)** | Denoising strength scaling prevents oversmoothing at large $\Delta_{\text{age}}$; cyclic reconstruction confirms trajectory bijectivity. |
+| Condition | Target Age | Output Est. Age | Target-Age Error (MAE) | ArcFace Identity Sim ($S_{\text{id}}$) | Cyclic Identity Sim ($S_{\text{cyc}}$) | Observations |
+|---|---|---|---|---|---|---|
+| **Generic Baseline** | 45 | 66.0 yrs | 21.0 yrs | 0.3073 | N/A | Fails at rejuvenation; outputs older appearance than requested. |
+| **Structured Prompt** | 45 | 66.0 yrs | 21.0 yrs | 0.2861 | N/A | Heavy wrinkle tokens resist downward rejuvenation when noise is fixed. |
+| **Adaptive Controller** | 45 | 60.0 yrs | **15.0 yrs** | **0.3640** | 0.2247 | Scaled noise ($\sigma=0.372$) reduces MAE by 6 yrs while preserving highest identity. |
+| **Generic Baseline** | 68 | 67.0 yrs | 1.0 yr | **0.3517** | N/A | Approaches target age, but skin details remain generic. |
+| **Structured Prompt** | 68 | **68.0 yrs** | **0.0 yrs** | 0.2463 | N/A | **Zero-error age convergence**; exact target match via age bracket tokens. |
+| **Adaptive Controller** | 68 | 63.0 yrs | 5.0 yrs | **0.3135** | 0.2231 | Preserves identity balance ($S_{\text{id}} = 0.3135$) while achieving aging. |
 
-*(All measurements derived from live PyTorch and InsightFace evaluations logged in `outputs/experiments/experiment_log.csv`)*.
+*(All measurements derived from live PyTorch and InsightFace evaluations on local CPU logged in `outputs/experiments/experiment_log.csv`)*.
 
 ---
 

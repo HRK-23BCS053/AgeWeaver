@@ -1,0 +1,23 @@
+{
+  "ID001_RAJESH_KHANNA": {
+    "success": true,
+    "details": {
+      "identity_id": "ID001_RAJESH_KHANNA",
+      "display_name": "Rajesh Khanna",
+      "local_path": "data/images\\ID001_RAJESH_KHANNA.jpg",
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rajesh_Khanna_Profile.jpg",
+      "direct_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rajesh_Khanna_Profile.jpg",
+      "license": "CC BY 3.0",
+      "attribution": "Bollywood Hungama",
+      "sha256": "9f7ac48006d56021",
+      "original_format": "JPEG",
+      "resolution": [
+        298,
+        439
+      ],
+      "face_detected": true,
+      "estimated_age": 55.0,
+      "det_score": 0.8497971296310425
+    }
+  }
+}

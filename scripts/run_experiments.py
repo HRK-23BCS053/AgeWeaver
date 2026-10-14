@@ -1,16 +1,17 @@
 """
 Execution script for AgeWeaver comparative research experiments.
 Executes:
-- Source face preparation (deterministic synthetic identity benchmark).
+- Source face preparation from real celebrity dataset (e.g. ID001_RAJESH_KHANNA) or explicit image path.
 - Experiment A: Generic prompt baseline.
 - Experiment B: Structured age-aware prompt refinement.
 - Experiment C: Proposed AgeWeaver adaptive controller (delta-scaled strength/guidance + cyclic round-trip).
-Across target age benchmarks (45, 65).
-Records live metrics, timings, and outputs.
+Across target age benchmarks (e.g. 45, 68).
+Records live metrics, timings, and outputs with strict no-silent-fallback rules.
 """
 
 import os
 import sys
+import argparse
 import time
 from PIL import Image
 
@@ -21,75 +22,113 @@ sys.path.insert(0, os.path.abspath("."))
 from ageweaver.pipeline import AgeWeaverPipeline
 from ageweaver.identity import FaceIdentityAnalyzer
 from ageweaver.experiment import ExperimentRunner
+from ageweaver.dataset import DatasetManager
 from ageweaver.utils import save_image, setup_logger
 
 logger = setup_logger("run_experiments")
 
 def main():
+    parser = argparse.ArgumentParser(description="AgeWeaver Controlled Comparative Experiments")
+    parser.add_argument("--identity-id", type=str, default=None, help="Celebrity identity ID from manifest (e.g. ID001_RAJESH_KHANNA)")
+    parser.add_argument("--image", type=str, default=None, help="Explicit path to an image file")
+    parser.add_argument("--target-ages", type=str, default="45,68", help="Comma-separated target ages (e.g. '45,68')")
+    parser.add_argument("--steps", type=int, default=15, help="Diffusion inference steps")
+    parser.add_argument("--seed", type=int, default=42, help="Fixed random seed for controlled comparisons")
+    parser.add_argument("--allow-synthetic", action="store_true", help="Allow fallback to synthetic identity if no real identity/image specified")
+    parser.add_argument("--output-dir", type=str, default="outputs/experiments", help="Output directory for generated results and logs")
+
+    args = parser.parse_args()
+
     print("=" * 70)
     print(" AGEWEAVER: AUTONOMOUS RESEARCH EXPERIMENTS")
     print(" Device: CPU (Intel Iris Xe) | Model: Stable Diffusion v1-5 (Offline)")
     print(" Evaluator: InsightFace buffalo_l (ArcFace + GenderAge)")
     print("=" * 70)
 
-    output_dir = "outputs/experiments"
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(args.output_dir, exist_ok=True)
 
     # 1. Initialize Pipeline & Evaluator
     pipeline = AgeWeaverPipeline()
     pipeline.load_pipeline()
-    runner = ExperimentRunner(output_dir=output_dir, pipeline=pipeline)
+    runner = ExperimentRunner(output_dir=args.output_dir, pipeline=pipeline)
 
-    # 2. Source Face Preparation
-    # Generate high-quality deterministic synthetic face to avoid copyright/privacy issues
-    source_img_path = os.path.join(output_dir, "benchmark_source_identity.png")
-    
-    if os.path.exists(source_img_path):
-        logger.info(f"Loading existing benchmark source identity from {source_img_path}")
-        source_image = Image.open(source_img_path).convert("RGB")
+    # 2. Source Image Resolution (Strict No Silent Fallback)
+    source_image = None
+    input_id = None
+    dm = DatasetManager()
+
+    if args.identity_id:
+        input_id = args.identity_id
+        logger.info(f"Target identity specified from manifest: {args.identity_id}")
+        try:
+            img_path = dm.get_image_path(args.identity_id, auto_download=True)
+            logger.info(f"Loaded real celebrity image from: {img_path}")
+            source_image = Image.open(img_path).convert("RGB")
+        except Exception as e:
+            logger.error(f"Failed to acquire image for identity '{args.identity_id}': {e}")
+            logger.error("Strict Policy: NO silent fallback to synthetic identity permitted when --identity-id is given.")
+            sys.exit(1)
+
+    elif args.image:
+        if not os.path.exists(args.image):
+            logger.error(f"Specified image file not found: {args.image}")
+            sys.exit(1)
+        input_id = os.path.basename(args.image).split(".")[0]
+        logger.info(f"Loaded image from user path: {args.image}")
+        source_image = Image.open(args.image).convert("RGB")
+
+    elif args.allow_synthetic:
+        input_id = "SYNTH_ID_2024"
+        source_img_path = os.path.join(args.output_dir, "benchmark_source_identity.png")
+        if os.path.exists(source_img_path):
+            logger.info(f"Loading existing benchmark synthetic identity from {source_img_path}")
+            source_image = Image.open(source_img_path).convert("RGB")
+        else:
+            logger.info("Generating deterministic synthetic benchmark identity portrait...")
+            source_image = pipeline.generate_synthetic_identity(
+                prompt="high quality studio portrait photograph of a 25-year-old young person, neutral expression, looking directly at camera, soft studio lighting, sharp facial details, 8k",
+                seed=2024,
+                steps=18
+            )
+            save_image(source_image, source_img_path)
     else:
-        logger.info("Generating deterministic synthetic benchmark identity portrait...")
-        source_image = pipeline.generate_synthetic_identity(
-            prompt="high quality studio portrait photograph of a 25-year-old young person, neutral expression, looking directly at camera, soft studio lighting, sharp facial details, 8k",
-            seed=2024,
-            steps=18
+        logger.error(
+            "No source identity provided. Please specify --identity-id <ID> (e.g. --identity-id ID001_RAJESH_KHANNA), "
+            "--image <path>, or explicitly pass --allow-synthetic to run the synthetic identity benchmark."
         )
-        save_image(source_image, source_img_path)
+        sys.exit(1)
 
-    # Analyze source identity
+    # 3. Analyze Source Identity
     src_res = runner.analyzer.analyze_image(source_image)
     if not src_res.face_detected:
-        logger.error(f"Source face detection failed: {src_res.error_message}")
+        logger.error(f"Source face detection failed on {input_id}: {src_res.error_message}")
         sys.exit(1)
 
     source_age = int(round(src_res.estimated_age)) if src_res.estimated_age else 25
     gender = src_res.gender or "person"
-    logger.info(f"Source Identity Verified: Detected=True, Estimated Age={src_res.estimated_age:.1f} (rounded: {source_age}), Gender={gender}")
+    logger.info(f"Source Face Verified: Detected=True, Est. Age={src_res.estimated_age:.1f} yrs (rounded: {source_age}), Gender={gender}, Confidence={src_res.det_score:.3f}")
 
-    # 3. Controlled Experiment Matrix
-    # We test two distinct target ages:
-    # Target 45 (mature adult, moderate delta)
-    # Target 68 (senior, large delta)
-    target_ages = [45, 68]
+    # 4. Controlled Experiment Matrix
+    target_ages = [int(a.strip()) for a in args.target_ages.split(",") if a.strip()]
     conditions = ["generic_baseline", "structured_prompt", "adaptive_control"]
 
     results = []
 
     for tgt_age in target_ages:
         for cond in conditions:
-            exp_id = f"EXP_{cond}_T{tgt_age}"
+            exp_id = f"EXP_{input_id}_{cond}_T{tgt_age}"
             is_cyclic = (cond == "adaptive_control")
-            
+
             logger.info(f"\n>>> Executing {exp_id} (Target Age: {tgt_age}) <<<")
             trial_res = runner.run_single_trial(
                 experiment_id=exp_id,
                 condition=cond,
                 source_image=source_image,
-                input_id="SYNTH_ID_2024",
+                input_id=input_id,
                 target_age=tgt_age,
                 source_age=source_age,
-                seed=42,  # Keep seed fixed across conditions for fair control
-                steps=15,
+                seed=args.seed,
+                steps=args.steps,
                 execute_cyclic=is_cyclic
             )
             results.append(trial_res)
@@ -104,7 +143,7 @@ def main():
             print(f"  Output Image        : {trial_res['output_path']}")
 
     print("\n" + "=" * 70)
-    print(" EXPERIMENT MATRIX SUMMARY")
+    print(f" EXPERIMENT MATRIX SUMMARY FOR {input_id}")
     print("=" * 70)
     print(f"{'Condition':20} | {'Tgt':4} | {'EstAge':7} | {'Age MAE':8} | {'Ident Sim':10} | {'Cyclic Sim':11} | {'Time (s)':8}")
     print("-" * 75)
@@ -115,8 +154,7 @@ def main():
         cyc_str = f"{r['cyclic_similarity']:.4f}" if r['cyclic_similarity'] is not None else "N/A"
         print(f"{r['condition']:20} | {r['target_age']:4} | {est_age_str:7} | {mae_str:8} | {sim_str:10} | {cyc_str:11} | {r['runtime_sec']:8.1f}")
     print("=" * 70)
-    print(f"Logs written to:\n - {runner.csv_log_path}\n - {runner.jsonl_log_path}")
+    print(f"Logs updated at:\n - {runner.csv_log_path}\n - {runner.jsonl_log_path}")
 
 if __name__ == "__main__":
     main()
-

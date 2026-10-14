@@ -7,6 +7,7 @@ and audits downloaded files against FaceAnalysis face detection.
 import os
 import sys
 import csv
+import json
 from typing import Dict, List, Any
 
 REQUIRED_COLUMNS = [
@@ -70,6 +71,18 @@ def validate_manifest(manifest_path: str = "data/dataset_manifest.csv", images_d
     if os.path.exists(images_dir):
         local_files = [f for f in os.listdir(images_dir) if f.lower().endswith((".jpg", ".jpeg", ".png"))]
         acquired_count = len(local_files)
+
+        # Check download_log for verified faces
+        log_file = "data/download_log.json"
+        if os.path.exists(log_file):
+            try:
+                with open(log_file, "r", encoding="utf-8") as lf:
+                    log_data = json.load(lf)
+                    for k, v in log_data.items():
+                        if v.get("success") and v.get("details", {}).get("face_detected"):
+                            verified_faces += 1
+            except Exception:
+                pass
 
     print(f"Manifest Rows Parsed   : {len(rows)}")
     print(f"Unique Identities      : {len(seen_identities)}")

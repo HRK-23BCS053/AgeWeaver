@@ -8,7 +8,7 @@ import os
 
 CELEBRITIES = [
     # (id, name, img_id, url, source, license, attribution, birth_year, cap_year, gender, notes)
-    ("ID001_RAJESH_KHANNA", "Rajesh Khanna", "IMG_001_01", "https://commons.wikimedia.org/wiki/File:Rajesh_Khanna_1970.jpg", "Wikimedia Commons", "Public Domain", "Government of India / Films Division", 1942, 1970, "male", "Qualitative case study noted in project requirements"),
+    ("ID001_RAJESH_KHANNA", "Rajesh Khanna", "IMG_001_01", "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rajesh_Khanna_Profile.jpg", "Wikimedia Commons", "CC BY 3.0", "Bollywood Hungama", 1942, 2010, "male", "Qualitative case study verified from Bollywood Hungama CC-BY 3.0 archive"),
     ("ID002_AMITABH_BACHCHAN", "Amitabh Bachchan", "IMG_002_01", "https://commons.wikimedia.org/wiki/File:Amitabh_Bachchan_2013.jpg", "Wikimedia Commons", "CC BY-SA 3.0", "Bollywood Hungama", 1942, 2013, "male", "Canonical Indian cinema longitudinal portrait"),
     ("ID003_SHAH_RUKH_KHAN", "Shah Rukh Khan", "IMG_003_01", "https://commons.wikimedia.org/wiki/File:Shah_Rukh_Khan_2012.jpg", "Wikimedia Commons", "CC BY-SA 3.0", "Bollywood Hungama", 1965, 2012, "male", "Contemporary Indian cinema reference"),
     ("ID004_AAMIR_KHAN", "Aamir Khan", "IMG_004_01", "https://commons.wikimedia.org/wiki/File:Aamir_Khan_2013.jpg", "Wikimedia Commons", "CC BY-SA 3.0", "Bollywood Hungama", 1965, 2013, "male", "Cinema character actor"),

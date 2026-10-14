@@ -27,6 +27,7 @@ def main():
     parser.add_argument("--mode", type=str, choices=["structured", "generic"], default="structured", help="Prompt refinement mode")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for generation")
     parser.add_argument("--steps", type=int, default=15, help="Number of diffusion inference steps")
+    parser.add_argument("--identity-id", type=str, default=None, help="Celebrity identity ID from manifest (e.g. ID001_RAJESH_KHANNA)")
     parser.add_argument("--output", type=str, default="outputs/demo_output.png", help="Path to save output image")
     parser.add_argument("--cyclic", action="store_true", help="Perform cyclic round-trip reconstruction")
 
@@ -43,11 +44,18 @@ def main():
     evaluator = AgeWeaverEvaluator(analyzer)
 
     # Load or generate source image
-    if args.image and os.path.exists(args.image):
+    source_img = None
+    if args.identity_id:
+        from ageweaver.dataset import DatasetManager
+        dm = DatasetManager()
+        img_path = dm.get_image_path(args.identity_id, auto_download=True)
+        logger.info(f"Loaded celebrity {args.identity_id} from {img_path}")
+        source_img = Image.open(img_path).convert("RGB")
+    elif args.image and os.path.exists(args.image):
         logger.info(f"Loading user image: {args.image}")
         source_img = Image.open(args.image).convert("RGB")
     else:
-        logger.info("No input image specified. Generating synthetic benchmark portrait...")
+        logger.info("No input image or identity specified. Generating synthetic benchmark portrait...")
         source_img = pipeline.generate_synthetic_identity(
             prompt="studio photographic portrait of a 25-year-old person, neutral expression, high resolution",
             seed=args.seed,

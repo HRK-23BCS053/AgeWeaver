@@ -118,8 +118,9 @@ where $\sigma_{\min} = 0.32$, $\sigma_{\max} = 0.58$, $s_{\min} = 7.0$, $s_{\max
 In strict accordance with research ethics and data protection principles, AgeWeaver eschews indiscriminate web scraping. All benchmark candidates are documented in `data/dataset_manifest.csv` with 15 schema attributes:
 - **Repository**: Wikimedia Commons and Open Cultural Archives under Creative Commons (CC-BY, CC-BY-SA, CC0) or Public Domain.
 - **Biographical Provenance**: Verified birth years and historical capture years enabling accurate reference age calculations.
-- **Qualitative Case Study**: Legendary actor Rajesh Khanna (`ID001_RAJESH_KHANNA`, 1942–2012) is designated as a qualitative benchmark anchor using an official 1970 archival portrait from the Films Division / Government of India.
-- **Synthetic Identity Benchmark**: For reproducible testing without privacy encumbrance, a deterministic synthetic source face generated via fixed seed diffusion is provided.
+- **Qualitative Case Study**: Legendary actor Rajesh Khanna (`ID001_RAJESH_KHANNA`, 1942–2012) is designated as a qualitative benchmark anchor using an official Bollywood Hungama CC-BY 3.0 archival portrait downloaded into `data/images/ID001_RAJESH_KHANNA.jpg` (SHA-256: `9f7ac48006d56021`, detected face confidence: 0.85, estimated baseline age: 55.0 years).
+- **Dataset Ingestion Pipeline**: Ingestion is handled by `src/ageweaver/dataset.py` and `scripts/download_dataset.py`, enforcing automated integrity verification, rate compliance, face localization audits, and strict no-silent-fallback guarantees.
+- **Synthetic Identity Benchmark**: For offline testing without external dependencies, a deterministic synthetic source face generated via fixed seed diffusion (`SYNTH_ID_2024`) is also supported.
 
 ---
 
