@@ -134,6 +134,42 @@ Outputs are logged to `outputs/experiments/experiment_log.csv` and `outputs/expe
 & $PYTHON scripts/evaluate.py --source data/images/ID001_RAJESH_KHANNA.jpg --generated outputs/demo_output.png --target-age 60
 ```
 
+### 4.7 Launch the Interactive Streamlit Research Frontend (AgeWeaver Studio)
+Launch the dark midnight-navy research UI for live faculty demonstration and interactive benchmarking:
+```powershell
+# Launch Streamlit web interface
+.\.venv\Scripts\streamlit.exe run app.py
+```
+Or with custom port and host:
+```powershell
+& "d:\Academics\IIIT Dharwad Exams\SEMESTER-7\AgeWeaver\.venv\Scripts\streamlit.exe" run app.py --server.port 8501
+```
+
+**Interface Destinations**:
+1. **🧬 Studio**: Interactive synthesis studio featuring:
+   - Dual Input Modes: Verified benchmark archive (`ID001_RAJESH_KHANNA`, `ID009_DEEPIKA_PADUKONE`, `SYNTH_ID_2024`) or custom high-res portrait upload.
+   - Live Biometric Audit: Real-time InsightFace buffalo_l face detection confidence, ArcFace 512-d feature extraction, and CNN estimated age.
+   - Constrained Progression Controls: Target age slider strictly enforced to forward aging ($y_{\text{tgt}} > y_{\text{src}}$).
+   - Paradigm Selector: Compare Generic Baseline (A), Structured Prompt (B), and Adaptive Control (C).
+   - Real-time CPU Synthesis: Progress bar, side-by-side comparison with original reference, and high-res PNG download.
+2. **📁 Experiments**: Auditable visual gallery and ledger:
+   - Multi-dimensional filtering by Subject Identity, Progression Condition, and Target Age.
+   - Aggregate statistical cards (Success Rate, Mean ArcFace Sim, Target MAE, CPU Runtime).
+   - Visual comparison cards with source vs progressed thumbnails, parameters ($\sigma, s$), and conditioning prompts.
+   - Interactive data table and one-click CSV export (`ageweaver_experiment_ledger.csv`).
+3. **📈 Research Metrics**: Empirical quantitative benchmarks:
+   - Cohort breakdown (Verified Young Rajesh Khanna, Synthetic, or All 21 Trials).
+   - Grouped paradigm comparison charts for ArcFace Identity Cosine Similarity ($S_{\text{id}}$) and Target MAE ($|\hat{y} - y_{\text{tgt}}|$).
+   - Pareto Tradeoff Curve: Identity preservation decay vs progression jump ($\Delta y$).
+   - Target Age Calibration Curve: Requested target age vs CNN estimated output age with ideal line of perfect calibration ($y = x$).
+   - Documented Chronological Age vs CNN Biometric Age analysis table.
+   - Explicit FaceTT implementation gap and metric availability audit.
+4. **ℹ️ About & Methodology**:
+   - Theoretical latent diffusion formulation and prompt composition details.
+   - Academic integrity disclosure of FaceTT component-level differences.
+   - Hardware optimization choices for 16 GB RAM CPU execution.
+   - IIIT Dharwad institutional context and project metadata.
+
 ---
 
 ## 5. Summary of Empirical Experimental Findings

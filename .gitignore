@@ -21,6 +21,8 @@ __pycache__/
 *.pth
 *.pt
 *.onnx
+*.whl
+wheels/
 
 # Dataset and generated outputs (strictly exclude heavy binaries/images)
 data/images/
