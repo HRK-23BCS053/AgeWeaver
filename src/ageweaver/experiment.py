@@ -71,7 +71,7 @@ class ExperimentRunner:
         ]
         csv_row = {k: record.get(k, "") for k in fieldnames}
         with open(self.csv_log_path, "a", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
             writer.writerow(csv_row)
 
     def run_single_trial(
@@ -194,7 +194,8 @@ class ExperimentRunner:
             "target_age_mae": metrics.age_mae if metrics else None,
             "cyclic_similarity": metrics.cyclic_similarity if metrics else None,
             "output_path": output_rel_path,
-            "prompt": gen_result.prompt if gen_result else ""
+            "prompt": gen_result.prompt if gen_result else "",
+            "scheduler": getattr(gen_result, "scheduler", getattr(self.pipeline.config, "scheduler_type", "dpmsolver++"))
         }
 
         self.log_record(record)

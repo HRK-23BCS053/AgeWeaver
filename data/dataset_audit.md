@@ -8,7 +8,7 @@ Generated per research requirements to strictly distinguish manifest listings fr
 - **Images Actually Downloaded**: 2
 - **Images Successfully Validated**: 2
 - **Verified Young References (Age 20-35 with Provenance)**: 2
-- **Identities with Completed Age-Progression Experiments**: 1
+- **Identities with Completed Age-Progression Experiments**: 2
 
 ## 2. Active Verified Identities
 

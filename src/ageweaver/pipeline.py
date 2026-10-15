@@ -10,7 +10,14 @@ from dataclasses import dataclass, asdict
 from typing import Optional, Dict, Any, Tuple
 from PIL import Image
 import torch
-from diffusers import StableDiffusionImg2ImgPipeline, StableDiffusionPipeline
+from diffusers import (
+    StableDiffusionImg2ImgPipeline,
+    StableDiffusionPipeline,
+    DPMSolverMultistepScheduler,
+    EulerDiscreteScheduler,
+    DDIMScheduler,
+    PNDMScheduler
+)
 
 from ageweaver.config import PipelineConfig, PromptConfig
 from ageweaver.prompts import (
@@ -36,6 +43,7 @@ class GenerationResult:
     target_age: int
     source_age: Optional[int] = None
     mode: str = "structured"
+    scheduler: str = "dpmsolver++"
 
 class AgeWeaverPipeline:
     """
@@ -64,6 +72,35 @@ class AgeWeaverPipeline:
         )
         self._pipe.to(self.config.device)
         self._pipe.set_progress_bar_config(disable=True)  # Clean logging
+
+        # Configure scheduler for robust artifact-free short-step img2img inference
+        sched_type = getattr(self.config, "scheduler_type", "dpmsolver++").lower()
+        if sched_type == "dpmsolver++":
+            self._pipe.scheduler = DPMSolverMultistepScheduler.from_config(
+                self._pipe.scheduler.config,
+                algorithm_type="dpmsolver++",
+                use_karras_sigmas=True
+            )
+        elif sched_type == "euler":
+            self._pipe.scheduler = EulerDiscreteScheduler.from_config(
+                self._pipe.scheduler.config
+            )
+        elif sched_type == "ddim":
+            self._pipe.scheduler = DDIMScheduler.from_config(
+                self._pipe.scheduler.config
+            )
+        elif sched_type == "pndm":
+            self._pipe.scheduler = PNDMScheduler.from_config(
+                self._pipe.scheduler.config
+            )
+        else:
+            logger.warning(f"Unrecognized scheduler_type '{sched_type}', defaulting to DPMSolverMultistepScheduler.")
+            self._pipe.scheduler = DPMSolverMultistepScheduler.from_config(
+                self._pipe.scheduler.config,
+                algorithm_type="dpmsolver++",
+                use_karras_sigmas=True
+            )
+        logger.info(f"Initialized diffusion pipeline with scheduler: {self._pipe.scheduler.__class__.__name__}")
         
         load_time = time.time() - t0
         logger.info(f"Model loaded successfully on {self.config.device} in {load_time:.2f}s")
@@ -224,6 +261,7 @@ class AgeWeaverPipeline:
             elapsed_time_sec=round(elapsed, 2),
             target_age=target_age,
             source_age=source_age,
-            mode=mode
+            mode=mode,
+            scheduler=getattr(self.config, "scheduler_type", "dpmsolver++")
         )
 

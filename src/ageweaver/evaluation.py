@@ -29,8 +29,23 @@ class EvaluationMetrics:
     cyclic_estimated_age: Optional[float] = None
     notes: str = ""
 
+    @property
+    def cyclic_similarity_display(self) -> str:
+        """User-facing string for cyclic similarity that avoids raw NaN."""
+        if self.cyclic_similarity is None:
+            return "N/A (Forward Only)"
+        try:
+            val = float(self.cyclic_similarity)
+            if np.isnan(val):
+                return "N/A (Forward Only)"
+            return f"{val:.4f}"
+        except (ValueError, TypeError):
+            return "N/A"
+
     def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
+        d = asdict(self)
+        d["cyclic_similarity_display"] = self.cyclic_similarity_display
+        return d
 
 class AgeWeaverEvaluator:
     """
@@ -94,6 +109,8 @@ class AgeWeaverEvaluator:
                     cyclic_sim = round(cyclic_sim, 4)
             else:
                 notes.append("Cyclic face not detected for round-trip identity evaluation.")
+        else:
+            notes.append("Forward-only evaluation; cyclic reconstruction not executed.")
 
         return EvaluationMetrics(
             source_face_detected=src_res.face_detected,

@@ -16,9 +16,10 @@
       "ID001_RAJESH_KHANNA",
       "ID009_DEEPIKA_PADUKONE"
     ],
-    "identities_with_experiments_count": 1,
+    "identities_with_experiments_count": 2,
     "identities_with_experiments": [
-      "ID001_RAJESH_KHANNA"
+      "ID001_RAJESH_KHANNA",
+      "ID009_DEEPIKA_PADUKONE"
     ]
   },
   "records": [
@@ -35,7 +36,7 @@
       "downloaded": true,
       "validated": true,
       "is_young_reference": true,
-      "experiments_completed": 15,
+      "experiments_completed": 19,
       "notes": "Verified young superstar portrait (~1970, age ~28) reproduced in India Post commemorative stamp (GODL-India)",
       "local_path": "data/images\\ID001_RAJESH_KHANNA.jpg",
       "resolution": [
@@ -170,7 +171,7 @@
       "downloaded": true,
       "validated": true,
       "is_young_reference": true,
-      "experiments_completed": 0,
+      "experiments_completed": 3,
       "notes": "Verified young adult portrait (2008, age ~22) from Bollywood Hungama CC BY-SA 3.0 archive",
       "local_path": "data/images\\ID009_DEEPIKA_PADUKONE.jpg",
       "resolution": [

@@ -41,6 +41,17 @@ class TestConfig(unittest.TestCase):
         with self.assertRaises(ValueError):
             cfg.validate()
 
+    def test_scheduler_type_configuration(self):
+        cfg = AgeWeaverConfig()
+        self.assertEqual(cfg.pipeline.scheduler_type, "dpmsolver++")
+        for valid_sched in ("dpmsolver++", "euler", "ddim", "pndm"):
+            cfg.pipeline.scheduler_type = valid_sched
+            cfg.validate()
+
+        cfg.pipeline.scheduler_type = "invalid_sched"
+        with self.assertRaises(ValueError):
+            cfg.validate()
+
     def test_yaml_roundtrip(self):
         cfg = AgeWeaverConfig()
         with tempfile.NamedTemporaryFile(suffix=".yaml", delete=False) as tmp:

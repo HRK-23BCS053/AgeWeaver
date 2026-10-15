@@ -60,6 +60,35 @@ class TestMetrics(unittest.TestCase):
         self.assertEqual(d["target_age"], 70)
         self.assertEqual(d["identity_similarity"], 0.825)
         self.assertEqual(d["age_mae"], 1.5)
+        self.assertEqual(d["cyclic_similarity_display"], "N/A (Forward Only)")
+
+    def test_cyclic_similarity_display(self):
+        # 1. Unexecuted / None
+        m_none = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            cyclic_similarity=None
+        )
+        self.assertEqual(m_none.cyclic_similarity_display, "N/A (Forward Only)")
+
+        # 2. Valid float
+        m_val = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            cyclic_similarity=0.6543
+        )
+        self.assertEqual(m_val.cyclic_similarity_display, "0.6543")
+
+        # 3. NaN float
+        m_nan = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            cyclic_similarity=float("nan")
+        )
+        self.assertEqual(m_nan.cyclic_similarity_display, "N/A (Forward Only)")
 
     def test_missing_face_handling(self):
         # Create a blank black image with no face

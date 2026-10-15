@@ -39,6 +39,8 @@ class PipelineConfig:
     guidance_min: float = 6.5
     guidance_max: float = 8.5
 
+    scheduler_type: str = "dpmsolver++"  # "dpmsolver++", "euler", "ddim", "pndm"
+
 @dataclass
 class EvaluationConfig:
     """Configuration for evaluation metrics."""
@@ -69,6 +71,8 @@ class AgeWeaverConfig:
             raise ValueError(f"num_inference_steps must be positive, got {self.pipeline.num_inference_steps}")
         if self.pipeline.guidance_scale <= 0.0:
             raise ValueError(f"guidance_scale must be positive, got {self.pipeline.guidance_scale}")
+        if self.pipeline.scheduler_type not in ("dpmsolver++", "euler", "ddim", "pndm"):
+            raise ValueError(f"scheduler_type must be 'dpmsolver++', 'euler', 'ddim', or 'pndm', got '{self.pipeline.scheduler_type}'")
         if self.prompt.mode not in ("generic", "structured"):
             raise ValueError(f"prompt mode must be 'generic' or 'structured', got '{self.prompt.mode}'")
 

@@ -321,7 +321,7 @@ def render_experiments_view():
         if "identity_similarity" in display_df.columns:
             display_df["identity_similarity"] = display_df["identity_similarity"].apply(lambda v: round(v, 4) if pd.notnull(v) else None)
         if "cyclic_similarity" in display_df.columns:
-            display_df["cyclic_similarity"] = display_df["cyclic_similarity"].apply(lambda v: round(v, 4) if pd.notnull(v) else None)
+            display_df["cyclic_similarity"] = display_df["cyclic_similarity"].apply(lambda v: f"{v:.4f}" if pd.notnull(v) else "— (Unmeasured)")
         if "generated_estimated_age" in display_df.columns:
             display_df["generated_estimated_age"] = display_df["generated_estimated_age"].apply(lambda v: round(v, 1) if pd.notnull(v) else None)
         if "target_age_mae" in display_df.columns:

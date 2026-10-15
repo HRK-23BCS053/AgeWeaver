@@ -35,6 +35,7 @@ def main():
     parser.add_argument("--target-ages", type=str, default="45,60,70", help="Comma-separated older target ages (default: '45,60,70')")
     parser.add_argument("--steps", type=int, default=15, help="Diffusion inference steps")
     parser.add_argument("--seed", type=int, default=42, help="Fixed random seed for controlled comparisons")
+    parser.add_argument("--scheduler", type=str, default="dpmsolver++", choices=["dpmsolver++", "euler", "ddim", "pndm"], help="Diffusion scheduler algorithm (default: 'dpmsolver++')")
     parser.add_argument("--allow-synthetic", action="store_true", help="Allow fallback to synthetic identity if no real identity/image specified")
     parser.add_argument("--output-dir", type=str, default="outputs/experiments", help="Output directory for generated results and logs")
 
@@ -43,13 +44,16 @@ def main():
     print("=" * 70)
     print(" AGEWEAVER: AUTONOMOUS RESEARCH EXPERIMENTS")
     print(" Device: CPU (Intel Iris Xe) | Model: Stable Diffusion v1-5 (Offline)")
+    print(f" Scheduler: {args.scheduler} (Karras Sigmas)")
     print(" Evaluator: InsightFace buffalo_l (ArcFace + GenderAge)")
     print("=" * 70)
 
     os.makedirs(args.output_dir, exist_ok=True)
 
     # 1. Initialize Pipeline & Evaluator
-    pipeline = AgeWeaverPipeline()
+    from ageweaver.config import PipelineConfig
+    pipe_config = PipelineConfig(scheduler_type=args.scheduler, num_inference_steps=args.steps)
+    pipeline = AgeWeaverPipeline(config=pipe_config)
     pipeline.load_pipeline()
     runner = ExperimentRunner(output_dir=args.output_dir, pipeline=pipeline)
 
