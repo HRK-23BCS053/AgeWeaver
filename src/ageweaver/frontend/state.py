@@ -63,5 +63,10 @@ def init_session_state():
         st.session_state.current_source_meta = None
     if "last_progression_result" not in st.session_state:
         st.session_state.last_progression_result = None
+    if "active_source_id" not in st.session_state:
+        st.session_state.active_source_id = None
+    if "active_source_sha256" not in st.session_state:
+        st.session_state.active_source_sha256 = None
     if "is_running" not in st.session_state:
         st.session_state.is_running = False
+
