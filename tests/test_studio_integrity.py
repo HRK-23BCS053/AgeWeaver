@@ -165,5 +165,56 @@ class TestStudioIntegrity(unittest.TestCase):
         self.assertEqual(meta_benchmark["baseline_age"], 28)
         self.assertIn("documented", meta_benchmark["baseline_source_desc"])
 
+    def test_exact_screenshot_scenario_hrk_jpeg_no_generate(self):
+        """
+        Exact regression test for the reported screenshot bug:
+        When mode is 'Upload Custom Portrait' and image is HRK.jpeg,
+        and the user has NOT clicked Generate (or refreshed the page):
+        - No Rajesh Khanna benchmark image may be returned
+        - No identity similarity of 0.4052 may be returned
+        - No estimated output age of 69.0 may be returned
+        - is_benchmark MUST be False
+        - Resolved result MUST be None, directing the UI to the Standby card.
+        """
+        source_type = "Upload Custom Portrait"
+        selected_benchmark = None
+        source_id = "UPLOAD_HRK_a8b9c1d2"
+        current_sha256 = "a8b9c1d2e3f40506"
+        session_result = None  # User has not clicked generate yet
+
+        resolved, is_benchmark = resolve_studio_result(
+            source_type=source_type,
+            selected_benchmark=selected_benchmark,
+            current_source_id=source_id,
+            current_sha256=current_sha256,
+            session_result=session_result
+        )
+
+        # 1. Must NOT return any result dictionary
+        self.assertIsNone(resolved, "No progression result may exist before Generate is clicked on HRK.jpeg")
+        
+        # 2. Must NOT flag as benchmark
+        self.assertFalse(is_benchmark, "is_benchmark must be False for HRK.jpeg upload")
+
+        # 3. Even if stale session result was left over from a previous session
+        stale_rk_result = {
+            "experiment_id": "EXP_ID001_RAJESH_KHANNA_structured_prompt_T70",
+            "input_id": "ID001_RAJESH_KHANNA",
+            "input_sha256": "bc2beae7d13cf734",
+            "identity_similarity": 0.4052,
+            "generated_estimated_age": 69.0,
+            "output_path": "outputs/experiments/ID001_RAJESH_KHANNA_structured_prompt_age70_seed42.png"
+        }
+        resolved_stale, is_b_stale = resolve_studio_result(
+            source_type=source_type,
+            selected_benchmark=selected_benchmark,
+            current_source_id=source_id,
+            current_sha256=current_sha256,
+            session_result=stale_rk_result
+        )
+        self.assertIsNone(resolved_stale, "Stale Rajesh Khanna result must be rejected when viewing HRK.jpeg")
+        self.assertFalse(is_b_stale)
+
 if __name__ == "__main__":
     unittest.main()
+
