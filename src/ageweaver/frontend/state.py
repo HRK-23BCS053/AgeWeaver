@@ -42,7 +42,7 @@ def get_dataset_manager() -> DatasetManager:
 def get_evaluator() -> AgeWeaverEvaluator:
     """Returns the AgeWeaverEvaluator singleton."""
     analyzer = get_analyzer()
-    return AgeWeaverEvaluator(face_analyzer=analyzer)
+    return AgeWeaverEvaluator(analyzer=analyzer)
 
 @st.cache_resource
 def get_experiment_runner() -> ExperimentRunner:

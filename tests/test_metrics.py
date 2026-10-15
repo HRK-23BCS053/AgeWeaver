@@ -70,6 +70,25 @@ class TestMetrics(unittest.TestCase):
         self.assertIsNone(res.embedding)
         self.assertIn("No face detected", res.error_message)
 
+    def test_evaluator_constructor_and_api(self):
+        """
+        Verify that AgeWeaverEvaluator supports positional and keyword initialization
+        using the correct parameter name 'analyzer'.
+        """
+        from ageweaver.frontend.state import get_evaluator, get_analyzer
+        # Positional
+        evaluator_pos = AgeWeaverEvaluator(FaceIdentityAnalyzer())
+        self.assertIsNotNone(evaluator_pos.analyzer)
+
+        # Keyword
+        evaluator_kw = AgeWeaverEvaluator(analyzer=FaceIdentityAnalyzer())
+        self.assertIsNotNone(evaluator_kw.analyzer)
+
+        # Singleton from frontend state
+        evaluator_state = get_evaluator()
+        self.assertIsInstance(evaluator_state, AgeWeaverEvaluator)
+        self.assertIsNotNone(evaluator_state.analyzer)
+
 if __name__ == "__main__":
     unittest.main()
 
