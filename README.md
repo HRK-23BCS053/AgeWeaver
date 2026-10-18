@@ -1,6 +1,6 @@
 # AgeWeaver
 
-**Identity-Preserving Facial Age Progression Using Diffusion Models**
+*Identity-Preserving Facial Age Progression Using Diffusion Models**
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3119/)
 [![PyTorch CPU](https://img.shields.io/badge/PyTorch-2.14%2Bcpu-orange.svg)](https://pytorch.org/)
