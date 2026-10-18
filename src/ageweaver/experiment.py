@@ -41,18 +41,20 @@ class ExperimentRunner:
         self.jsonl_log_path = os.path.join(self.output_dir, "experiment_log.jsonl")
         self._init_logs()
 
+    DEFAULT_CSV_FIELDNAMES = [
+        "experiment_id", "timestamp", "input_id", "input_sha256",
+        "condition", "source_age", "target_age", "seed", "steps",
+        "strength", "guidance_scale", "runtime_sec", "success",
+        "identity_similarity", "reference_identity_similarity",
+        "source_estimated_age", "generated_estimated_age",
+        "target_age_mae", "cyclic_similarity", "output_path", "prompt", "scheduler"
+    ]
+
     def _init_logs(self):
         """Initializes CSV header if file doesn't already exist."""
         if not os.path.exists(self.csv_log_path):
-            fieldnames = [
-                "experiment_id", "timestamp", "input_id", "input_sha256",
-                "condition", "source_age", "target_age", "seed", "steps",
-                "strength", "guidance_scale", "runtime_sec", "success",
-                "identity_similarity", "source_estimated_age", "generated_estimated_age",
-                "target_age_mae", "cyclic_similarity", "output_path", "prompt"
-            ]
             with open(self.csv_log_path, "w", newline="", encoding="utf-8") as f:
-                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer = csv.DictWriter(f, fieldnames=self.DEFAULT_CSV_FIELDNAMES)
                 writer.writeheader()
 
     def log_record(self, record: Dict[str, Any]):
@@ -61,17 +63,20 @@ class ExperimentRunner:
         with open(self.jsonl_log_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(record, default=str) + "\n")
 
-        # CSV
-        fieldnames = [
-            "experiment_id", "timestamp", "input_id", "input_sha256",
-            "condition", "source_age", "target_age", "seed", "steps",
-            "strength", "guidance_scale", "runtime_sec", "success",
-            "identity_similarity", "source_estimated_age", "generated_estimated_age",
-            "target_age_mae", "cyclic_similarity", "output_path", "prompt"
-        ]
-        csv_row = {k: record.get(k, "") for k in fieldnames}
+        # CSV: dynamically use existing header if present to ensure column count consistency
+        active_fieldnames = list(self.DEFAULT_CSV_FIELDNAMES)
+        if os.path.exists(self.csv_log_path):
+            try:
+                with open(self.csv_log_path, "r", encoding="utf-8") as f:
+                    first_line = f.readline().strip()
+                    if first_line:
+                        active_fieldnames = [col.strip() for col in first_line.split(",") if col.strip()]
+            except Exception:
+                active_fieldnames = list(self.DEFAULT_CSV_FIELDNAMES)
+
+        csv_row = {k: record.get(k, "") for k in active_fieldnames}
         with open(self.csv_log_path, "a", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            writer = csv.DictWriter(f, fieldnames=active_fieldnames, extrasaction="ignore")
             writer.writerow(csv_row)
 
     def run_single_trial(
@@ -85,7 +90,8 @@ class ExperimentRunner:
         gender_hint: Optional[str] = None,
         seed: int = 42,
         steps: int = 15,
-        execute_cyclic: bool = False
+        execute_cyclic: bool = False,
+        reference_target_image: Optional[Image.Image] = None
     ) -> Dict[str, Any]:
         """
         Runs a single controlled trial and computes all metrics.
@@ -166,7 +172,8 @@ class ExperimentRunner:
                 generated_image=gen_result.generated_image,
                 target_age=target_age,
                 source_age=source_age,
-                cyclic_reconstructed_image=cyclic_img
+                cyclic_reconstructed_image=cyclic_img,
+                reference_target_image=reference_target_image
             )
             success = True
 
@@ -189,6 +196,7 @@ class ExperimentRunner:
             "runtime_sec": gen_result.elapsed_time_sec if gen_result else 0.0,
             "success": success,
             "identity_similarity": metrics.identity_similarity if metrics else None,
+            "reference_identity_similarity": metrics.reference_identity_similarity if metrics else None,
             "source_estimated_age": metrics.source_estimated_age if metrics else None,
             "generated_estimated_age": metrics.generated_estimated_age if metrics else None,
             "target_age_mae": metrics.age_mae if metrics else None,

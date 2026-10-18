@@ -44,10 +44,26 @@ class GenerationResult:
     source_age: Optional[int] = None
     mode: str = "structured"
     scheduler: str = "dpmsolver++"
+def classify_transformation(source_age: Optional[int], target_age: int) -> str:
+    """
+    Explicitly classifies the transformation mode:
+    - 'progression': target_age > source_age (forward aging / senescence)
+    - 'regression': target_age < source_age (rejuvenation / de-aging)
+    - 'reconstruction': target_age == source_age (identity preservation control)
+    - 'unconditioned': source_age is None
+    """
+    if source_age is None:
+        return "unconditioned"
+    if target_age > source_age:
+        return "progression"
+    elif target_age < source_age:
+        return "regression"
+    else:
+        return "reconstruction"
 
 class AgeWeaverPipeline:
     """
-    Age progression pipeline built on Stable Diffusion v1-5.
+    Age progression and regression pipeline built on Stable Diffusion v1-5.
     Configured for local offline CPU execution.
     """
     def __init__(self, config: Optional[PipelineConfig] = None):
@@ -55,22 +71,51 @@ class AgeWeaverPipeline:
         self._pipe: Optional[StableDiffusionImg2ImgPipeline] = None
         self._text2img_pipe: Optional[StableDiffusionPipeline] = None
 
+    def _resolve_device_and_dtype(self) -> Tuple[torch.device, torch.dtype]:
+        raw_device = getattr(self.config, "device", "cpu")
+        if raw_device == "auto":
+            device_str = "cuda" if torch.cuda.is_available() else "cpu"
+        else:
+            device_str = raw_device
+        device = torch.device(device_str)
+
+        dtype_str = getattr(self.config, "torch_dtype", "float32").lower()
+        if dtype_str == "float16" or (dtype_str == "auto" and device.type == "cuda"):
+            dtype = torch.float16
+        else:
+            dtype = torch.float32
+        return device, dtype
+
     def load_pipeline(self) -> None:
-        """Loads the pre-trained diffusion model from local cache."""
+        """Loads the pre-trained diffusion model from local cache with online fallback."""
         if self._pipe is not None:
             return
 
-        logger.info(f"Loading diffusion model from {self.config.model_id} (local_files_only={self.config.local_files_only})...")
+        device, dtype = self._resolve_device_and_dtype()
+        logger.info(f"Loading diffusion model from {self.config.model_id} on {device} (dtype={dtype}, local_files_only={self.config.local_files_only})...")
         t0 = time.time()
         
         # Load img2img pipeline
-        self._pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
-            self.config.model_id,
-            dtype=torch.float32,
-            local_files_only=self.config.local_files_only,
-            safety_checker=None
-        )
-        self._pipe.to(self.config.device)
+        try:
+            self._pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+                self.config.model_id,
+                torch_dtype=dtype,
+                local_files_only=self.config.local_files_only,
+                safety_checker=None
+            )
+        except (OSError, ValueError) as err:
+            if self.config.local_files_only:
+                logger.warning(f"Model not found in local cache ({err}). Retrying with local_files_only=False...")
+                self._pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+                    self.config.model_id,
+                    torch_dtype=dtype,
+                    local_files_only=False,
+                    safety_checker=None
+                )
+            else:
+                raise
+
+        self._pipe.to(device)
         self._pipe.set_progress_bar_config(disable=True)  # Clean logging
 
         # Configure scheduler for robust artifact-free short-step img2img inference
@@ -111,10 +156,12 @@ class AgeWeaverPipeline:
         target_age: int
     ) -> Tuple[float, float]:
         """
-        Calculates adaptive denoising strength and guidance scale based on the age delta.
-        Hypothesis:
-        - Small age transitions require low strength (preserving fine identity markers).
-        - Large age transitions require higher strength to introduce genuine structural aging.
+        Calculates adaptive denoising strength and guidance scale based on the absolute age delta.
+        Supports bidirectional transformations:
+        - Progression (target_age > source_age): Scales parameters with age advancement.
+        - Regression (target_age < source_age): Scales parameters with rejuvenation delta.
+        - Reconstruction (target_age == source_age): Applies minimum baseline perturbation (sigma_min=0.32, guidance_min=6.5)
+          for identity self-consistency verification.
         """
         if not self.config.use_adaptive_control or source_age is None:
             return self.config.default_strength, self.config.guidance_scale
@@ -154,10 +201,11 @@ class AgeWeaverPipeline:
                 safety_checker=None,
                 feature_extractor=None
             )
-            self._text2img_pipe.to(self.config.device)
+            device, _ = self._resolve_device_and_dtype()
+            self._text2img_pipe.to(device)
             self._text2img_pipe.set_progress_bar_config(disable=True)
 
-        generator = torch.Generator(device=self.config.device).manual_seed(seed)
+        generator = torch.Generator(device=self._text2img_pipe.device).manual_seed(seed)
         neg_prompt = build_negative_prompt()
         
         with torch.inference_mode():
@@ -223,7 +271,8 @@ class AgeWeaverPipeline:
         negative_prompt = build_negative_prompt(custom_negative)
 
         # Prepare generator
-        generator = torch.Generator(device=self.config.device).manual_seed(actual_seed)
+        gen_device = self._pipe.device if (self._pipe and hasattr(self._pipe, "device")) else "cpu"
+        generator = torch.Generator(device=gen_device).manual_seed(actual_seed)
 
         # Ensure image is in proper RGB dimensions
         target_size = (self.config.image_size, self.config.image_size)

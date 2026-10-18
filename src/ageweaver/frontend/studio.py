@@ -344,23 +344,32 @@ def render_studio_view():
             # -----------------------------------------------------------------
             if face_valid and age_meta:
                 st.markdown('<div class="aw-card">', unsafe_allow_html=True)
-                st.markdown('<div class="aw-card-title"><span>⚙️</span> 3. Progression Configuration</div>', unsafe_allow_html=True)
+                st.markdown('<div class="aw-card-title"><span>⚙️</span> 3. Age Transformation Configuration</div>', unsafe_allow_html=True)
 
                 base_age = age_meta["baseline_age"]
-                min_target = max(base_age + 5, 25)
 
                 target_age = st.slider(
-                    "Target Progression Age (Years)",
-                    min_value=min_target,
+                    "Target Transformation Age (Years)",
+                    min_value=2,
                     max_value=90,
-                    value=max(min_target, min(base_age + 30, 75)),
-                    step=5,
-                    help=f"Must be strictly older than reference baseline ({base_age} yrs from {age_meta['baseline_source_desc']})."
+                    value=min(max(base_age + 20, 2), 75),
+                    step=1,
+                    help=f"Select target age for progression, regression, or reconstruction (Reference baseline: {base_age} yrs from {age_meta['baseline_source_desc']})."
                 )
 
                 age_delta = target_age - base_age
+                if target_age > base_age:
+                    delta_label = f"Progression (+{age_delta} yrs: {base_age} ➔ {target_age} yrs)"
+                    badge_style = "aw-badge-violet"
+                elif target_age < base_age:
+                    delta_label = f"Regression ({age_delta} yrs: {base_age} ➔ {target_age} yrs)"
+                    badge_style = "aw-badge-cyan"
+                else:
+                    delta_label = f"Reconstruction Control (Self-Consistency: {base_age} yrs)"
+                    badge_style = "aw-badge-cyan"
+
                 st.markdown(
-                    f'<span class="aw-badge aw-badge-violet">Age Jump: +{age_delta} Years ({base_age} ➔ {target_age} yrs • Based on {age_meta["baseline_source_desc"]})</span>',
+                    f'<span class="aw-badge {badge_style}">{delta_label} • Based on {age_meta["baseline_source_desc"]}</span>',
                     unsafe_allow_html=True
                 )
 

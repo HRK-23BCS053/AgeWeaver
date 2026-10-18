@@ -1,0 +1,23 @@
+# AgeWeaver Dependencies for Google Colab GPU Environment (CUDA 12.x / PyTorch 2.x)
+
+# Core Diffusion & Deep Learning (Colab pre-installs torch/torchvision, but ensure minimum versions)
+diffusers>=0.28.0
+transformers>=4.40.0
+accelerate>=0.29.0
+
+# Biometrics, Face Recognition & Attribute Estimation (InsightFace / ArcFace)
+insightface>=0.7.3
+onnxruntime-gpu>=1.17.0
+opencv-python-headless>=4.8.0
+
+# Scientific & Image Processing
+Pillow>=9.5.0
+numpy>=1.24.0,<2.0.0
+scipy>=1.10.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+
+# Configuration & Utilities
+PyYAML>=6.0
+tqdm>=4.65.0
+

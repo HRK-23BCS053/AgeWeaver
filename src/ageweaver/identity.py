@@ -35,8 +35,10 @@ class FaceIdentityAnalyzer:
         if self._app is None:
             import insightface
             from insightface.app import FaceAnalysis
-            # Explicitly force CPUExecutionProvider to match non-GPU environment
-            self._app = FaceAnalysis(name=self.model_name, providers=['CPUExecutionProvider'])
+            import onnxruntime as ort
+            available = ort.get_available_providers()
+            providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if 'CUDAExecutionProvider' in available else ['CPUExecutionProvider']
+            self._app = FaceAnalysis(name=self.model_name, providers=providers)
             self._app.prepare(ctx_id=0, det_size=self.det_size)
 
     def analyze_image(self, pil_image: Image.Image) -> FaceIdentityResult:

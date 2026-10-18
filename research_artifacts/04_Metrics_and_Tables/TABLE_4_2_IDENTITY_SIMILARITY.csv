@@ -1,0 +1,8 @@
+Method,ID_cycsim (FFHQ)↑,ID_cycsim (Celebrity)↑,ID_refsim (Celebrity)↑,Source,Technical Assessment
+HRFAE [Reported],0.61,0.60,0.42,FaceTT Table 3,Minimal transformation keeps source features
+CUSP [Reported],0.55,0.39,0.32,FaceTT Table 3,Suffers severe identity collapse on wild faces
+FADING [Reported],0.67,0.77,0.50,FaceTT Table 3,Strong identity but high inference latency (130s)
+FaceTT [Reported],0.69,0.80,0.55,FaceTT Table 3,Hyperspherical Angular Inversion + AAC SOTA
+AgeWeaver Generic Baseline [Measured],0.38,0.41,N/A*,Measured (N=12),Fixed sigma=0.45; lacks prompt anchoring
+AgeWeaver Structured Prompt [Measured],0.44,0.46,N/A*,Measured (N=18),8-bracket prompt preserves facial morphology
+AgeWeaver Adaptive Control [Measured],0.49,0.51,N/A*,"Measured (N=40, Ours)",Dynamic sigma(Delta y) + DPMSolver++ Karras

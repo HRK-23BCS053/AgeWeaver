@@ -40,6 +40,7 @@ class PipelineConfig:
     guidance_max: float = 8.5
 
     scheduler_type: str = "dpmsolver++"  # "dpmsolver++", "euler", "ddim", "pndm"
+    torch_dtype: str = "float32"  # "float32" or "float16" (for CUDA acceleration)
 
 @dataclass
 class EvaluationConfig:

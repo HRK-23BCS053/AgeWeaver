@@ -1,0 +1,10 @@
+table_id,method,source,predicted_age,blur_b_score,gender_preservation_pct,smiling_pct,neutral_pct,happy_pct,identity_similarity,notes
+Table 1 (CelebA-HQ Young-to-60),Real Images,"FaceTT Paper (Kar et al., 2026)",65.14 +/- 4.86,1.73,99.98,78.36,62.62,73.19,1.000,Target real distribution
+Table 1 (CelebA-HQ Young-to-60),HRFAE [BMVC 2023],"FaceTT Paper (Kar et al., 2026)",46.88 +/- 7.97,3.89,97.94,71.18,59.83,64.12,0.573,Severe under-aging (MAE 18.26 yrs)
+Table 1 (CelebA-HQ Young-to-60),CUSP [ICCV 2023],"FaceTT Paper (Kar et al., 2026)",62.63 +/- 6.88,2.69,98.13,73.99,63.94,71.98,0.528,Moderate identity drift
+Table 1 (CelebA-HQ Young-to-60),FADING [CVPR 2024],"FaceTT Paper (Kar et al., 2026)",64.12 +/- 6.30,2.49,98.23,74.35,61.77,69.19,0.562,130s latency per image
+Table 1 (CelebA-HQ Young-to-60),FaceTT (Proposed),"FaceTT Paper (Kar et al., 2026)",62.05 +/- 6.81,2.18,99.79,78.31,62.67,72.17,0.612,Best SOTA score on A100 GPU
+Table 2 (FFHQ-Aging 10 Groups),CUSP,"FaceTT Paper (Kar et al., 2026)",Overall MAE: 16.40,N/A,97.4,N/A,N/A,N/A,KID: 0.021,Evaluated across 10 age groups
+Table 2 (FFHQ-Aging 10 Groups),FADING,"FaceTT Paper (Kar et al., 2026)",Overall MAE: 13.47,N/A,98.1,N/A,N/A,N/A,KID: 0.016,Evaluated across 10 age groups
+Table 2 (FFHQ-Aging 10 Groups),FaceTT (Proposed),"FaceTT Paper (Kar et al., 2026)",Overall MAE: 11.40,N/A,98.6,N/A,N/A,N/A,KID: 0.012,Lowest error & highest KID fidelity
+Table 3 (Identity Similarity),FaceTT (Proposed),"FaceTT Paper (Kar et al., 2026)",N/A,N/A,N/A,N/A,N/A,N/A,"ID_cyc(FFHQ): 0.540, ID_cyc(Celeb): 0.562, ID_ref(Celeb): 0.435",Bidirectional round-trip transitions

@@ -10,7 +10,9 @@ from typing import Optional, Dict
 from dataclasses import dataclass
 
 AGE_BRACKETS = [
-    (0, 19, "adolescent", "youthful smooth skin, soft facial contours", "natural vibrant hair"),
+    (0, 4, "toddler", "delicate smooth skin, soft facial contours", "fine soft hair"),
+    (5, 12, "child", "youthful smooth skin, soft facial contours", "natural vibrant hair"),
+    (13, 19, "adolescent", "youthful smooth skin, soft facial contours", "natural vibrant hair"),
     (20, 34, "young adult", "smooth taut skin, firm jawline, clear complexion", "full natural hair"),
     (35, 49, "mature adult", "subtle laughter lines around eyes, slight nasolabial folds, natural skin texture", "natural hair with slight subtle silver strands at temples"),
     (50, 64, "middle-aged", "visible forehead lines, defined nasolabial folds, fine crow's feet, mature skin texture", "noticeable graying hair, salt and pepper hair"),

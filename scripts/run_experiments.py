@@ -134,23 +134,34 @@ def main():
     # 4. Controlled Experiment Matrix
     target_ages = [int(a.strip()) for a in args.target_ages.split(",") if a.strip()]
 
-    # Validate that every target age is older than input age
+    # Validate target ages across progression, regression, and reconstruction control
     for tgt_age in target_ages:
-        if tgt_age <= source_age:
-            raise ValueError(
-                f"Experimental Design Violation: Target age ({tgt_age}) must be strictly older "
-                f"than verified source age ({source_age}) for age-progression research."
-            )
+        if tgt_age < 0 or tgt_age > 120:
+            raise ValueError(f"Target age ({tgt_age}) must be between 0 and 120 years.")
+        if tgt_age > source_age:
+            dir_label = "progression"
+        elif tgt_age < source_age:
+            dir_label = "regression"
+        else:
+            dir_label = "reconstruction"
+        logger.info(f"Target age configured: {tgt_age} [{dir_label.upper()}: {source_age} -> {tgt_age}]")
 
     conditions = ["generic_baseline", "structured_prompt", "adaptive_control"]
     results = []
 
     for tgt_age in target_ages:
+        if tgt_age > source_age:
+            dir_label = "progression"
+        elif tgt_age < source_age:
+            dir_label = "regression"
+        else:
+            dir_label = "reconstruction"
+
         for cond in conditions:
             exp_id = f"EXP_{input_id}_{cond}_T{tgt_age}"
             is_cyclic = (cond == "adaptive_control")
 
-            logger.info(f"\n>>> Executing {exp_id} (Target Age: {tgt_age}) <<<")
+            logger.info(f"\n>>> Executing {exp_id} ({dir_label.upper()}: Age {source_age} -> {tgt_age}) <<<")
             trial_res = runner.run_single_trial(
                 experiment_id=exp_id,
                 condition=cond,

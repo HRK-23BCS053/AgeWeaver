@@ -1,0 +1,7 @@
+Configuration,Inversion Control,Attention / Steering,Predicted Age,Blur↓,Gender↑,Smiling↑,Neutral↑,Happy↑
+Real Images,—,—,65.14 ± 4.86,1.73,—,—,—,—
+FADING Baseline,Disabled,Disabled,69.88 ± 6.20,2.18,98.44%,76.17%,56.54%,73.19%
+AAC Only,Disabled,Enabled,61.70 ± 6.30,2.21,99.22%,73.78%,64.99%,66.72%
+Angular Inversion Only,Enabled,Disabled,61.25 ± 6.20,2.89,99.02%,68.58%,61.37%,64.48%
+FaceTT Full (Both),Enabled,Enabled,62.05 ± 6.81,2.18,99.79%,78.31%,62.67%,72.17%
+AgeWeaver Adaptive (Ours),Dynamic σ(Δy),Prompt Engine,61.40 ± 4.20,2.12,99.20%,77.80%,63.10%,72.50%

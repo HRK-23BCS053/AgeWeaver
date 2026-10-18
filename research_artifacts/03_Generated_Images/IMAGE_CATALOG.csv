@@ -1,0 +1,71 @@
+image_filename,input_id,condition,target_age,seed,role,identity_similarity,generated_estimated_age,target_age_mae,runtime_sec,hardware,platform
+EXP_generic_baseline_T45_generic_baseline_age45_seed42.png,SYNTH_ID_2024,generic_baseline,45,42,forward_progression,0.4057,41.0,4.0,121.26,Intel CPU (Float32),Local Workstation
+EXP_structured_prompt_T45_structured_prompt_age45_seed42.png,SYNTH_ID_2024,structured_prompt,45,42,forward_progression,0.2957,55.0,10.0,99.32,Intel CPU (Float32),Local Workstation
+EXP_adaptive_control_T45_adaptive_control_age45_seed42.png,SYNTH_ID_2024,adaptive_control,45,42,forward_progression,0.2989,55.0,10.0,130.52,Intel CPU (Float32),Local Workstation
+EXP_generic_baseline_T68_generic_baseline_age68_seed42.png,SYNTH_ID_2024,generic_baseline,68,42,forward_progression,0.3399,53.0,15.0,184.4,Intel CPU (Float32),Local Workstation
+EXP_structured_prompt_T68_structured_prompt_age68_seed42.png,SYNTH_ID_2024,structured_prompt,68,42,forward_progression,0.2606,55.0,13.0,132.78,Intel CPU (Float32),Local Workstation
+EXP_adaptive_control_T68_adaptive_control_age68_seed42.png,SYNTH_ID_2024,adaptive_control,68,42,forward_progression,0.1085,53.0,15.0,121.83,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_generic_baseline_T45_generic_baseline_age45_seed42.png,ID001_RAJESH_KHANNA,generic_baseline,45,42,forward_progression,0.3073,66.0,21.0,129.44,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_structured_prompt_T45_structured_prompt_age45_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,45,42,forward_progression,0.2861,66.0,21.0,112.49,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_adaptive_control_T45_adaptive_control_age45_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,45,42,forward_progression,0.364,60.0,15.0,108.29,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_generic_baseline_T68_generic_baseline_age68_seed42.png,ID001_RAJESH_KHANNA,generic_baseline,68,42,forward_progression,0.3517,67.0,1.0,105.88,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_structured_prompt_T68_structured_prompt_age68_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,68,42,forward_progression,0.2463,68.0,0.0,89.47,Intel CPU (Float32),Local Workstation
+EXP_ID001_RAJESH_KHANNA_adaptive_control_T68_adaptive_control_age68_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,68,42,forward_progression,0.3135,63.0,5.0,88.26,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_generic_baseline_age45_seed42.png,ID001_RAJESH_KHANNA,generic_baseline,45,42,forward_progression,0.4291,47.0,2.0,96.62,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age45_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,45,42,forward_progression,0.5081,62.0,17.0,86.68,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age45_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,45,42,forward_progression,0.511,63.0,18.0,82.81,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_generic_baseline_age60_seed42.png,ID001_RAJESH_KHANNA,generic_baseline,60,42,forward_progression,0.3903,66.0,6.0,114.99,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age60_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,60,42,forward_progression,0.4319,66.0,6.0,136.33,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age60_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,60,42,forward_progression,0.2568,64.0,4.0,127.27,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_generic_baseline_age70_seed42.png,ID001_RAJESH_KHANNA,generic_baseline,70,42,forward_progression,0.3676,71.0,1.0,110.92,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age70_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,70,42,forward_progression,0.4052,69.0,1.0,110.02,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age70_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,70,42,forward_progression,0.1998,74.0,4.0,129.12,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age48_seed42.png,ID001_RAJESH_KHANNA,structured_prompt,48,42,forward_progression,0.5157,64.0,16.0,111.63,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age43_seed53.png,ID001_RAJESH_KHANNA,structured_prompt,43,53,forward_progression,0.3607,72.0,29.0,77.48,Intel CPU (Float32),Local Workstation
+ID009_DEEPIKA_PADUKONE_adaptive_control_age37_seed42.png,ID009_DEEPIKA_PADUKONE,adaptive_control,37,42,forward_progression,0.3909,58.0,21.0,67.45,Intel CPU (Float32),Local Workstation
+UPLOAD_HRK_ea7e3a97_structured_prompt_age30_seed41.png,UPLOAD_HRK_ea7e3a97,structured_prompt,30,41,forward_progression,0.3316,46.0,16.0,77.89,Intel CPU (Float32),Local Workstation
+UPLOAD_HRK_ea7e3a97_adaptive_control_age30_seed42.png,UPLOAD_HRK_ea7e3a97,adaptive_control,30,42,forward_progression,0.7671,29.0,1.0,107.35,Intel CPU (Float32),Local Workstation
+UPLOAD_HRK_ea7e3a97_adaptive_control_age45_seed42.png,UPLOAD_HRK_ea7e3a97,adaptive_control,45,42,forward_progression,0.603,35.0,10.0,81.73,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age45_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,45,42,forward_progression,0.6636,56.0,11.0,82.66,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age60_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,60,42,forward_progression,0.5604,58.0,2.0,110.29,Intel CPU (Float32),Local Workstation
+ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42.png,ID009_DEEPIKA_PADUKONE,adaptive_control,35,42,forward_progression,0.7605,27.0,8.0,73.58,Intel CPU (Float32),Local Workstation
+ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42.png,ID009_DEEPIKA_PADUKONE,adaptive_control,50,42,forward_progression,0.5533,29.0,21.0,84.68,Intel CPU (Float32),Local Workstation
+SYNTH_ID_2024_adaptive_control_age45_seed42.png,SYNTH_ID_2024,adaptive_control,45,42,forward_progression,0.6823,26.0,19.0,86.83,Intel CPU (Float32),Local Workstation
+SYNTH_ID_2024_adaptive_control_age68_seed42.png,SYNTH_ID_2024,adaptive_control,68,42,forward_progression,0.3478,45.0,23.0,106.79,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_structured_prompt_age43_seed49.png,ID001_RAJESH_KHANNA,structured_prompt,43,49,forward_progression,0.5275,45.0,2.0,85.66,Intel CPU (Float32),Local Workstation
+ID009_DEEPIKA_PADUKONE_structured_prompt_age37_seed49.png,ID009_DEEPIKA_PADUKONE,structured_prompt,37,49,forward_progression,0.659,29.0,8.0,81.2,Intel CPU (Float32),Local Workstation
+UPLOAD_HRK_ea7e3a97_structured_prompt_age49_seed42.png,UPLOAD_HRK_ea7e3a97,structured_prompt,49,42,forward_progression,0.6007,35.0,14.0,78.76,Intel CPU (Float32),Local Workstation
+UPLOAD_HRK_ea7e3a97_adaptive_control_age49_seed42.png,UPLOAD_HRK_ea7e3a97,adaptive_control,49,42,forward_progression,0.3335,42.0,7.0,83.59,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age58_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,58,42,forward_progression,0.56,58.0,0.0,104.2,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age68_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,68,42,forward_progression,0.5625,62.0,6.0,92.8,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_adaptive_control_age35_seed42.png,ID001_RAJESH_KHANNA,adaptive_control,35,42,forward_progression,0.7356,51.0,16.0,84.71,Intel CPU (Float32),Local Workstation
+ID001_RAJESH_KHANNA_generic_baseline_age2_seed42017.png,ID001_RAJESH_KHANNA,generic_baseline,2,42017,forward_progression,0.6508,50.0,48.0,3.89,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_generic_baseline_age12_seed42017.png,ID001_RAJESH_KHANNA,generic_baseline,12,42017,forward_progression,0.5996,41.0,29.0,1.18,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_generic_baseline_age35_seed42017.png,ID001_RAJESH_KHANNA,generic_baseline,35,42017,forward_progression,0.6512,52.0,17.0,1.13,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_generic_baseline_age50_seed42017.png,ID001_RAJESH_KHANNA,generic_baseline,50,42017,forward_progression,0.6583,52.0,2.0,1.14,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_generic_baseline_age70_seed42017.png,ID001_RAJESH_KHANNA,generic_baseline,70,42017,forward_progression,0.664,52.0,18.0,1.14,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_structured_prompt_age2_seed42017.png,ID001_RAJESH_KHANNA,structured_prompt,2,42017,forward_progression,0.6177,47.0,45.0,1.14,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_structured_prompt_age12_seed42017.png,ID001_RAJESH_KHANNA,structured_prompt,12,42017,forward_progression,0.5531,45.0,33.0,1.15,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_structured_prompt_age35_seed42017.png,ID001_RAJESH_KHANNA,structured_prompt,35,42017,forward_progression,0.6121,50.0,15.0,1.15,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_structured_prompt_age50_seed42017.png,ID001_RAJESH_KHANNA,structured_prompt,50,42017,forward_progression,0.6212,55.0,5.0,1.16,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_structured_prompt_age70_seed42017.png,ID001_RAJESH_KHANNA,structured_prompt,70,42017,forward_progression,0.6352,54.0,16.0,1.16,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_adaptive_control_age2_seed42017.png,ID001_RAJESH_KHANNA,adaptive_control,2,42017,forward_progression,0.616,48.0,46.0,1.16,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_adaptive_control_age12_seed42017.png,ID001_RAJESH_KHANNA,adaptive_control,12,42017,forward_progression,0.5609,45.0,33.0,1.25,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_adaptive_control_age35_seed42017.png,ID001_RAJESH_KHANNA,adaptive_control,35,42017,forward_progression,0.7443,46.0,11.0,1.08,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_adaptive_control_age50_seed42017.png,ID001_RAJESH_KHANNA,adaptive_control,50,42017,forward_progression,0.6238,55.0,5.0,1.24,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID001_RAJESH_KHANNA_adaptive_control_age70_seed42017.png,ID001_RAJESH_KHANNA,adaptive_control,70,42017,forward_progression,0.1788,69.0,1.0,1.45,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_generic_baseline_age2_seed42017.png,ID009_DEEPIKA_PADUKONE,generic_baseline,2,42017,forward_progression,0.6384,29.0,27.0,1.27,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_generic_baseline_age12_seed42017.png,ID009_DEEPIKA_PADUKONE,generic_baseline,12,42017,forward_progression,0.6083,27.0,15.0,1.19,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_generic_baseline_age35_seed42017.png,ID009_DEEPIKA_PADUKONE,generic_baseline,35,42017,forward_progression,0.6326,29.0,6.0,1.19,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_generic_baseline_age50_seed42017.png,ID009_DEEPIKA_PADUKONE,generic_baseline,50,42017,forward_progression,0.6114,30.0,20.0,1.19,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_generic_baseline_age70_seed42017.png,ID009_DEEPIKA_PADUKONE,generic_baseline,70,42017,forward_progression,0.5886,31.0,39.0,1.19,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_structured_prompt_age2_seed42017.png,ID009_DEEPIKA_PADUKONE,structured_prompt,2,42017,forward_progression,0.6386,29.0,27.0,1.19,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_structured_prompt_age12_seed42017.png,ID009_DEEPIKA_PADUKONE,structured_prompt,12,42017,forward_progression,0.569,26.0,14.0,1.2,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_structured_prompt_age35_seed42017.png,ID009_DEEPIKA_PADUKONE,structured_prompt,35,42017,forward_progression,0.6424,29.0,6.0,1.21,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_structured_prompt_age50_seed42017.png,ID009_DEEPIKA_PADUKONE,structured_prompt,50,42017,forward_progression,0.6166,30.0,20.0,1.2,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_structured_prompt_age70_seed42017.png,ID009_DEEPIKA_PADUKONE,structured_prompt,70,42017,forward_progression,0.5884,31.0,39.0,1.2,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_adaptive_control_age2_seed42017.png,ID009_DEEPIKA_PADUKONE,adaptive_control,2,42017,forward_progression,0.6398,28.0,26.0,1.2,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_adaptive_control_age12_seed42017.png,ID009_DEEPIKA_PADUKONE,adaptive_control,12,42017,forward_progression,0.7479,27.0,15.0,1.12,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42017.png,ID009_DEEPIKA_PADUKONE,adaptive_control,35,42017,forward_progression,0.7697,28.0,7.0,1.15,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42017.png,ID009_DEEPIKA_PADUKONE,adaptive_control,50,42017,forward_progression,0.6155,30.0,20.0,1.27,NVIDIA Tesla T4 GPU (FP16),Google Colab
+ID009_DEEPIKA_PADUKONE_adaptive_control_age70_seed42017.png,ID009_DEEPIKA_PADUKONE,adaptive_control,70,42017,forward_progression,0.2893,52.0,18.0,1.57,NVIDIA Tesla T4 GPU (FP16),Google Colab

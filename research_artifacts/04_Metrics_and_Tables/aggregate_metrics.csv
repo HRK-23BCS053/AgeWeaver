@@ -1,0 +1,4 @@
+condition,trial_count,mean_identity_similarity,min_identity_similarity,max_identity_similarity,mean_target_age_mae,min_target_age_mae,max_target_age_mae,mean_runtime_cpu_sec,mean_runtime_colab_gpu_sec,cyclic_similarity_trials,mean_cyclic_similarity
+adaptive_control,30,0.512,0.1085,0.7697,13.27,0.0,46.0,97.74,1.25,19,0.3512
+generic_baseline,17,0.5232,0.3073,0.664,15.94,1.0,48.0,123.36,1.45,0,N/A
+structured_prompt,23,0.501,0.2463,0.659,16.22,0.0,45.0,98.44,1.18,0,N/A

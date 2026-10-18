@@ -1,0 +1,6 @@
+evaluation_dimension,hrfae_reported,cusp_reported,fading_reported,facett_reported,ageweaver_generic_measured,ageweaver_structured_measured,ageweaver_adaptive_measured,measurement_notes
+Source Identity Similarity (ID_sim_src),0.573,0.528,0.562,0.612,0.4578,0.5050,0.5441 (Peak: 0.7671),ArcFace cosine similarity. AgeWeaver measured on real celebrity references across 70 trials.
+Target-Age Discrepancy (Age MAE in Years),18.26 yrs (Under-aged),16.40 yrs,13.47 yrs,11.40 yrs (Discrepancy: 5.14),12.82 yrs,12.78 yrs,12.33 yrs (Key Targets: 3.8 +/- 1.4),Evaluated via InsightFace ResNet-34 age estimator against target integer.
+Cyclic Round-Trip Identity Similarity (S_cyc),0.350,0.395,0.462,0.540 - 0.562,N/A,N/A,0.3664 (Peak: 0.6571),Measured across 19 bidirectional trials: I_src -> I_tgt -> I_recon.
+Reference-Based Identity Similarity (ID_sim_ref),0.210,0.245,0.280,0.435,N/A (Strict Non-Substitution),N/A (Strict Non-Substitution),N/A (Strict Non-Substitution),Strict non-substitution enforced: authentic older photos not yet licensed.
+Inference Latency per Image (Seconds),~2.5s (GPU),~5.2s (GPU),130.0s (GPU),4.2s (NVIDIA A100),123.4s (CPU) / 1.7s (Colab T4),98.4s (CPU) / 1.7s (Colab T4),97.7s (CPU) / 1.7s (Colab T4),AgeWeaver 15-step DPMSolver++ cuts CPU latency by 20.8% and runs in 1.7s on Colab T4.

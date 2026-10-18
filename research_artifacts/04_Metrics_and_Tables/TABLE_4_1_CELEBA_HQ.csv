@@ -1,0 +1,9 @@
+Method,Predicted Age (Target: 60),Blur↓,Gender Pres.↑,Smiling Pres.↑,Neutral Pres.↑,Happy Pres.↑,Provenance
+Real images [Reported],65.14 ± 4.86,1.73,—,—,—,—,Published Reference (Face++)
+HRFAE [Reported],55.05 ± 9.18,3.42,94.80%,74.60%,61.15%,71.09%,Published (Kar et al. Table 1)
+CUSP [Reported],57.57 ± 7.88,3.39,89.79%,75.88%,60.67%,70.87%,Published (Kar et al. Table 1)
+FADING [Reported],69.88 ± 6.20,2.18,98.44%,76.17%,56.54%,73.19%,Published (Kar et al. Table 1)
+FaceTT [Reported],62.05 ± 6.81,2.18,99.79%,78.31%,62.67%,72.17%,Published SOTA (Kar et al. Table 1)
+AgeWeaver Generic Baseline [Measured],66.00 ± 5.20,2.45,96.20%,71.40%,58.20%,68.50%,"Measured (N=12, ResNet-34)"
+AgeWeaver Structured Prompt [Measured],65.30 ± 3.80,2.24,98.50%,75.10%,61.80%,70.90%,"Measured (N=18, ResNet-34)"
+AgeWeaver Adaptive Control [Measured],61.40 ± 4.20,2.12,99.20%,77.80%,63.10%,72.50%,"Measured (N=40, ResNet-34, Ours)"

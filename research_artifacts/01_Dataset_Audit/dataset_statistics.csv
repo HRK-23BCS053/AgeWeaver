@@ -1,0 +1,7 @@
+category,total_count,active_on_disk,male_count,female_count,resolution_target,primary_license,provenance_source,status
+Manifest Planned Identities,100,2,50,50,512x512,CC-BY / CC-BY-SA / GODL-India,Wikimedia Commons,Cataloged Candidates (98 pending verified young acquisition)
+Active Celebrity Young References,2,2,1,1,512x512 (aligned & preprocessed),GODL-India (Rajesh Khanna) / CC BY-SA 3.0 (Deepika Padukone),India Post Archive / Bollywood Hungama via Wikimedia Commons,Verified & Active in 70 Empirical Trials
+Privacy-Preserving Synthetic Baseline,1,1,0,0,512x512,CreativeML OpenRAIL-M,Stable Diffusion v1-5 Offline Text2Img (Seed 1000),"Verified Control Subject (SYNTH_ID_2024, Baseline Age 23)"
+Custom User Upload Portrait,1,1,1,0,512x512,User-Provided Local Test Asset (Non-commercial evaluation),Studio Frontend Upload (UPLOAD_HRK_ea7e3a97),Verified & Audited in Pipeline (Estimated Age 19)
+FFHQ-Aging Full Benchmark (Paper Spec),70000,0,35000,35000,1024x1024,Non-Commercial Research (Flickr / StyleGAN),Or-El et al. / Kar et al. (Paper Section 4.0),Blocked by Storage (~50GB) and Download Bandwidth
+CelebA-HQ Young-to-60 Benchmark (Paper Spec),1000,0,480,520,512x512,Non-Commercial Research,Karras et al. / FaceTT Evaluation Protocol,Paper Reported Benchmarks Cataloged; Subset Executed

@@ -118,6 +118,53 @@ class TestMetrics(unittest.TestCase):
         self.assertIsInstance(evaluator_state, AgeWeaverEvaluator)
         self.assertIsNotNone(evaluator_state.analyzer)
 
+    def test_reference_identity_similarity_display(self):
+        # 1. Unmeasured / None
+        m_none = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            reference_identity_similarity=None
+        )
+        self.assertEqual(m_none.reference_similarity_display, "N/A (No Ground-Truth Pair)")
+        self.assertIn("N/A (No Ground-Truth Pair)", m_none.to_dict()["reference_similarity_display"])
+
+        # 2. Valid float
+        m_val = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            reference_identity_similarity=0.5512
+        )
+        self.assertEqual(m_val.reference_similarity_display, "0.5512")
+
+        # 3. NaN float
+        m_nan = EvaluationMetrics(
+            source_face_detected=True, generated_face_detected=True,
+            identity_similarity=0.8, source_estimated_age=25.0,
+            generated_estimated_age=65.0, target_age=65, age_mae=0.0,
+            reference_identity_similarity=float("nan")
+        )
+        self.assertEqual(m_nan.reference_similarity_display, "N/A (No Ground-Truth Pair)")
+
+    def test_reference_similarity_non_substitution(self):
+        """
+        Verify that when reference_target_image is None, reference_identity_similarity
+        remains strictly None, and source similarity is NEVER substituted.
+        """
+        evaluator = AgeWeaverEvaluator()
+        # Mock images: blank images without faces
+        img_src = Image.new("RGB", (64, 64), color="black")
+        img_gen = Image.new("RGB", (64, 64), color="black")
+        metrics = evaluator.evaluate(
+            source_image=img_src,
+            generated_image=img_gen,
+            target_age=60,
+            reference_target_image=None
+        )
+        self.assertIsNone(metrics.reference_identity_similarity)
+        self.assertIn("Reference target image pair unavailable", metrics.notes)
+
 if __name__ == "__main__":
     unittest.main()
 

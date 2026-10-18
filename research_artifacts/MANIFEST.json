@@ -1,0 +1,937 @@
+{
+  "FINAL_HANDOVER.md": {
+    "relative_path": "FINAL_HANDOVER.md",
+    "size_bytes": 15428,
+    "sha256": "06941174f389b726fd43e798f0a8bf88aee21aba1c2f978566088bcd50fbceae"
+  },
+  "README.md": {
+    "relative_path": "README.md",
+    "size_bytes": 8263,
+    "sha256": "f88a0c1af3a034f4a820a394d3d9c5991771b8c9f18f04740ad85ce41a10edee"
+  },
+  "00_Project_Tracking/FACETT_MASTER_TRACKER.md": {
+    "relative_path": "00_Project_Tracking/FACETT_MASTER_TRACKER.md",
+    "size_bytes": 17804,
+    "sha256": "701b0ccdd7f0b477cdfc18848446b26ab91679ceb2627ec36c96b03e9fa26f89"
+  },
+  "00_Project_Tracking/FACETT_REQUIREMENTS_MASTER.csv": {
+    "relative_path": "00_Project_Tracking/FACETT_REQUIREMENTS_MASTER.csv",
+    "size_bytes": 20979,
+    "sha256": "89aad8aac332215ccd2eb0918fb0b3848586012c19e410db19215aa6589c8b9a"
+  },
+  "00_Project_Tracking/FACETT_REQUIREMENTS_MASTER.md": {
+    "relative_path": "00_Project_Tracking/FACETT_REQUIREMENTS_MASTER.md",
+    "size_bytes": 12235,
+    "sha256": "73da2ef79eef09f3fe26e3ec8d107e805f38c14789730a4e0c6f5d163795cbfe"
+  },
+  "00_Project_Tracking/PROJECT_STATE_AUDIT.md": {
+    "relative_path": "00_Project_Tracking/PROJECT_STATE_AUDIT.md",
+    "size_bytes": 9603,
+    "sha256": "f7afa37ffbbb9e57418800d385c9b2aef12ff7efed3709700517c9af46cbb1e1"
+  },
+  "01_Dataset_Audit/DATASET_AUDIT_REPORT.md": {
+    "relative_path": "01_Dataset_Audit/DATASET_AUDIT_REPORT.md",
+    "size_bytes": 8618,
+    "sha256": "3a936120cbe88649cff2e52772407f302c4f0cdefd697bba86cc9f996c6fe6a7"
+  },
+  "01_Dataset_Audit/dataset_audit.json": {
+    "relative_path": "01_Dataset_Audit/dataset_audit.json",
+    "size_bytes": 55763,
+    "sha256": "3ff93f1b5159ba5ce574b045bf571420048f494a36dbc8f6df4effd9cefeb01a"
+  },
+  "01_Dataset_Audit/dataset_audit.md": {
+    "relative_path": "01_Dataset_Audit/dataset_audit.md",
+    "size_bytes": 1285,
+    "sha256": "63041f059bda0e540d599317dc12fe703422be6a9e75472eda4a345735ea194b"
+  },
+  "01_Dataset_Audit/dataset_manifest.csv": {
+    "relative_path": "01_Dataset_Audit/dataset_manifest.csv",
+    "size_bytes": 28499,
+    "sha256": "4880ddbacec05e6959d2cb520e96b5cd6bfd083afd7e966dd3235d6a628e4186"
+  },
+  "01_Dataset_Audit/dataset_statistics.csv": {
+    "relative_path": "01_Dataset_Audit/dataset_statistics.csv",
+    "size_bytes": 1303,
+    "sha256": "f4237c784b8a3133883717695a2dda14249e0d7cf7f251a3b7dc841759c6f8bd"
+  },
+  "01_Dataset_Audit/download_log.json": {
+    "relative_path": "01_Dataset_Audit/download_log.json",
+    "size_bytes": 1567,
+    "sha256": "d995ef43b02e05b196d2c2d1c2f1c13e18982736d009dad1019e18855e9428ef"
+  },
+  "01_Dataset_Audit/preprocessing_log.csv": {
+    "relative_path": "01_Dataset_Audit/preprocessing_log.csv",
+    "size_bytes": 1401,
+    "sha256": "afe492bbfb9e5e2b61a95a3f7ae20920e6f1c15780a1fa4db0ad172697613952"
+  },
+  "01_Dataset_Audit/provenance_and_licensing.md": {
+    "relative_path": "01_Dataset_Audit/provenance_and_licensing.md",
+    "size_bytes": 6067,
+    "sha256": "df57df919e3d0e962ff3449a186575bf5e6f371ae1b3fc589db14af279bb231b"
+  },
+  "02_Configs_and_Protocols/FACETT_IMPLEMENTATION_FIDELITY_AUDIT.md": {
+    "relative_path": "02_Configs_and_Protocols/FACETT_IMPLEMENTATION_FIDELITY_AUDIT.md",
+    "size_bytes": 11172,
+    "sha256": "92f4bc126361fdb8247974a13a22c171d896dfd19f70e41217e318aab3852bd0"
+  },
+  "02_Configs_and_Protocols/PROTOCOL_SUMMARY.md": {
+    "relative_path": "02_Configs_and_Protocols/PROTOCOL_SUMMARY.md",
+    "size_bytes": 7006,
+    "sha256": "d4a399895af735fcaf5d604c9364d1355968c099d9eaf03402d3fd7fce41c621"
+  },
+  "02_Configs_and_Protocols/architecture.md": {
+    "relative_path": "02_Configs_and_Protocols/architecture.md",
+    "size_bytes": 4821,
+    "sha256": "e45836269c5153da10f3a28d76af37d9fa0fece305d2d8935d06b2fd1e526213"
+  },
+  "02_Configs_and_Protocols/dataset_protocol.md": {
+    "relative_path": "02_Configs_and_Protocols/dataset_protocol.md",
+    "size_bytes": 5957,
+    "sha256": "a2aaa0ed8ee4e9b8df9ad33d4c1fadf85c8a240611ad390a5902a6fa7895f125"
+  },
+  "02_Configs_and_Protocols/default.yaml": {
+    "relative_path": "02_Configs_and_Protocols/default.yaml",
+    "size_bytes": 919,
+    "sha256": "e2dbb3cba19bf95ca114b625f4612399c9be9be8e88c042d964c3ad1406bed0b"
+  },
+  "02_Configs_and_Protocols/evaluation_protocol.md": {
+    "relative_path": "02_Configs_and_Protocols/evaluation_protocol.md",
+    "size_bytes": 3220,
+    "sha256": "dba00b369568c9c1f761d3439be53583c4416f02d2f0baf6fcdc95ce01419042"
+  },
+  "02_Configs_and_Protocols/implementation_gaps.md": {
+    "relative_path": "02_Configs_and_Protocols/implementation_gaps.md",
+    "size_bytes": 4608,
+    "sha256": "7f3a0935e094cf62ae23913441e253cc3f110f41008f6747e8a5c1aeee28db7c"
+  },
+  "02_Configs_and_Protocols/reproduction_guide.md": {
+    "relative_path": "02_Configs_and_Protocols/reproduction_guide.md",
+    "size_bytes": 3221,
+    "sha256": "483e9bc4dade1daf8bf94536abef94c3cadbc6404235b6be1764670fd7c59908"
+  },
+  "02_Configs_and_Protocols/research_methodology.md": {
+    "relative_path": "02_Configs_and_Protocols/research_methodology.md",
+    "size_bytes": 5721,
+    "sha256": "04f35b991ef2b66a78c172992487152254de16a93d4ee1a5a5d900f97c279d9d"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T45_adaptive_control_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T45_adaptive_control_age45_seed42.png",
+    "size_bytes": 393704,
+    "sha256": "73af400a14920af203728796b1f064246821622a2b3994914057c3c8ac973c48"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T45_adaptive_control_cyclic_recon_age55.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T45_adaptive_control_cyclic_recon_age55.png",
+    "size_bytes": 439581,
+    "sha256": "5860f0ee53da54f3867bca937ba35d6bfd2b4017bb1897298f141b3758f65cad"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T68_adaptive_control_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T68_adaptive_control_age68_seed42.png",
+    "size_bytes": 393109,
+    "sha256": "08cdf191de916757a61be017175c3b6993af17c466d3539e8323c6a223df32c3"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T68_adaptive_control_cyclic_recon_age55.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_adaptive_control_T68_adaptive_control_cyclic_recon_age55.png",
+    "size_bytes": 438967,
+    "sha256": "13e679e4ec5886a13ac47b8d085a99a07932c5feafc7b30769233efbc7f513c2"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_generic_baseline_T45_generic_baseline_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_generic_baseline_T45_generic_baseline_age45_seed42.png",
+    "size_bytes": 396784,
+    "sha256": "634bcf55a9151ed8d786f6e654f8395183143c4f0a9df029974c7056ba5f15ac"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_generic_baseline_T68_generic_baseline_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_generic_baseline_T68_generic_baseline_age68_seed42.png",
+    "size_bytes": 397066,
+    "sha256": "e6d279dbece598fd0a1cffd562f16b9b52c43ae8d7099dc566e6fbbbccda9e6e"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_structured_prompt_T45_structured_prompt_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_structured_prompt_T45_structured_prompt_age45_seed42.png",
+    "size_bytes": 405390,
+    "sha256": "ad3052fc9c4b2db153522ffc984fa32ea1e0326a828689d6d22a1aa566cd5e35"
+  },
+  "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_structured_prompt_T68_structured_prompt_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_ID001_RAJESH_KHANNA_structured_prompt_T68_structured_prompt_age68_seed42.png",
+    "size_bytes": 403978,
+    "sha256": "6fe549a40d452ba99b6762920f18e7e02d1f65947de2ee68c8974cfe0889763b"
+  },
+  "03_Generated_Images/EXP_adaptive_control_T45_adaptive_control_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_adaptive_control_T45_adaptive_control_age45_seed42.png",
+    "size_bytes": 412891,
+    "sha256": "2526148e9c4229ff129910a715da89838894ffe7773c1982c8556f0ac5c80810"
+  },
+  "03_Generated_Images/EXP_adaptive_control_T45_adaptive_control_cyclic_recon_age23.png": {
+    "relative_path": "03_Generated_Images/EXP_adaptive_control_T45_adaptive_control_cyclic_recon_age23.png",
+    "size_bytes": 455779,
+    "sha256": "5ea0e1fb04ddc62bdfb208dc15c2ac9da91e72e0c56187d2fa7474ca6c10154e"
+  },
+  "03_Generated_Images/EXP_adaptive_control_T68_adaptive_control_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_adaptive_control_T68_adaptive_control_age68_seed42.png",
+    "size_bytes": 437146,
+    "sha256": "4784f3d90fca6132aaa1d0d1e1049ba89cfc5beb63d639d16226f371b860376a"
+  },
+  "03_Generated_Images/EXP_adaptive_control_T68_adaptive_control_cyclic_recon_age23.png": {
+    "relative_path": "03_Generated_Images/EXP_adaptive_control_T68_adaptive_control_cyclic_recon_age23.png",
+    "size_bytes": 474358,
+    "sha256": "0a4312eddb7c01ebdee6ea07f575a3cbddcfb299b72d190ff5fc5347d900d667"
+  },
+  "03_Generated_Images/EXP_generic_baseline_T45_generic_baseline_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_generic_baseline_T45_generic_baseline_age45_seed42.png",
+    "size_bytes": 410571,
+    "sha256": "a4ea0827faddeb976d076add1917fe1b61e902480b4b19db41ba924b1ee2f1aa"
+  },
+  "03_Generated_Images/EXP_generic_baseline_T68_generic_baseline_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_generic_baseline_T68_generic_baseline_age68_seed42.png",
+    "size_bytes": 413026,
+    "sha256": "f5a5ebd7d274da05aa7e272da4bddb137fa6a62ee86819438f33ddf437c0c2cb"
+  },
+  "03_Generated_Images/EXP_structured_prompt_T45_structured_prompt_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_structured_prompt_T45_structured_prompt_age45_seed42.png",
+    "size_bytes": 413437,
+    "sha256": "1a92ffb1278622ddaf0a380a045b00049bef0f89b4d67c01011fe04593f22398"
+  },
+  "03_Generated_Images/EXP_structured_prompt_T68_structured_prompt_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/EXP_structured_prompt_T68_structured_prompt_age68_seed42.png",
+    "size_bytes": 415965,
+    "sha256": "c1c121eccf64f35b686ee9ef48cd813a13fd41925586d9f11a7b9302513e4693"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age12_seed42017.png",
+    "size_bytes": 425992,
+    "sha256": "dce2628c0a1bb5abcb071d804d5b6cf8f9055c79b5ec2130c1441c58d23b7861"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age2_seed42017.png",
+    "size_bytes": 426032,
+    "sha256": "91584269a8c80e2ddfca6593d94a227b6e7aaba7e8e034bd46589948fd8d2c35"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age35_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age35_seed42.png",
+    "size_bytes": 428186,
+    "sha256": "046d2196da8244c8922e24bf63506e071e0525d86da7cdfe801a19f53b59de95"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age35_seed42017.png",
+    "size_bytes": 428604,
+    "sha256": "7021918b599c9e83b928c000c550add0bb07549a778db9c0f97a628447bd7ed0"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age45_seed42.png",
+    "size_bytes": 426511,
+    "sha256": "47f3e319ec682118f8f4a334405df4dcdf61ba25d1077f4d74e1afece81184f5"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age50_seed42017.png",
+    "size_bytes": 426806,
+    "sha256": "d73960d6d48ec386afb0a56e9eff940f13579b61ffec2d80ef5f79c68452af0d"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age58_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age58_seed42.png",
+    "size_bytes": 425721,
+    "sha256": "9307b397f61925d7cfccee504aacd24e1c5463fcd8a43e676ad656acaaa48deb"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age60_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age60_seed42.png",
+    "size_bytes": 425635,
+    "sha256": "4d0ad61a612480468ee5b3a2c8fd2f58abb804cee550d78bdcb8bad8c6b9eed8"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age68_seed42.png",
+    "size_bytes": 426092,
+    "sha256": "a3775fb3fedbee38903a16e9421eb6445cc2d17d931d4e61aee004db91f771fc"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age70_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age70_seed42.png",
+    "size_bytes": 471403,
+    "sha256": "58a7872b9c3b1da6cecd7915b4de7414ccf8826bfb9ee2cc035e633d2a4ea404"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_age70_seed42017.png",
+    "size_bytes": 430270,
+    "sha256": "e019d08bcdaff85f324167e4283e1e8ca64432780d2406791f86ac6db378bfc7"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_cyclic_recon_age28_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_cyclic_recon_age28_seed42.png",
+    "size_bytes": 502511,
+    "sha256": "cff38832f9c5162bf751a5af1ce4e7e940191209b06ff074eb55a74525c6dcb1"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_cyclic_recon_age28_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_adaptive_control_cyclic_recon_age28_seed42017.png",
+    "size_bytes": 422109,
+    "sha256": "aefc1abb18f0dfe43f14c66ee11d3fd92d937da9f30ef922f9a75f3d8369de47"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age12_seed42017.png",
+    "size_bytes": 427296,
+    "sha256": "e681d3c8fea8cd7e9b9923b9b400ef1341d4a653c2f5f27c267c3915805606e2"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age2_seed42017.png",
+    "size_bytes": 427357,
+    "sha256": "35fd656dab11d0827c4434b851a551e0e102d270cb73847a7adb299a96667f74"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age35_seed42017.png",
+    "size_bytes": 427399,
+    "sha256": "b69d91e259b04c4b07c44268224e99e4524af5572133d0d7e64294b2874ab354"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age45_seed42.png",
+    "size_bytes": 458997,
+    "sha256": "d923ebacef745d7d7f13032d6f88c6241b1bde9d36354b9b979ebf7d4d4717ff"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age50_seed42017.png",
+    "size_bytes": 427369,
+    "sha256": "dce7f2f66745d75bf4cb1981ed150f5865f8da04501d58460c6f0115c3ea100b"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age60_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age60_seed42.png",
+    "size_bytes": 461465,
+    "sha256": "a80af0f409c77062f6a95093ada26000284f0140ea721b2cb3ee12c0a2716974"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age70_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age70_seed42.png",
+    "size_bytes": 462589,
+    "sha256": "c3855659382c49b42dbc1f2fed491325282f586a8c1724b8eb10694d696c7bfe"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_generic_baseline_age70_seed42017.png",
+    "size_bytes": 427581,
+    "sha256": "881933d2c87c85a1a730bc2c73e45e092529611b5cdd820f21a6371b3f7e8d4c"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_source_reference.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_source_reference.png",
+    "size_bytes": 215534,
+    "sha256": "b3a846ea1e582dd8aeb712f566faf5adaf9b1e227ae76239ac725df1bbfed955"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age12_seed42017.png",
+    "size_bytes": 425806,
+    "sha256": "142c72514dd1b5313ff5b6034c04c00019d6e677e08051c4ffad86ad9baa4f07"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age2_seed42017.png",
+    "size_bytes": 425942,
+    "sha256": "f765aa5b6e8748cbb036b9cb43da5441f262f26b5a406d5047896c511c5034a8"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age35_seed42017.png",
+    "size_bytes": 426414,
+    "sha256": "ce5127533220f34f21a1896dbfdb3c1eb35868e7944d20ab04070d2c2fff0435"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age43_seed49.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age43_seed49.png",
+    "size_bytes": 428809,
+    "sha256": "2a2a512698c1e8684d669b0fd10d87da105f0bf4ce23e8023568093a50f3c22a"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age43_seed53.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age43_seed53.png",
+    "size_bytes": 493754,
+    "sha256": "710cc4eeee6b71077faa97f67c7e43c4c8772ead1ce650098db8cf5982bae17b"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age45_seed42.png",
+    "size_bytes": 459913,
+    "sha256": "521dec1d79e5627bcfa7d3aa7f76683385c6e7eb6d21770ff01b0f3e9ac6d3d1"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age48_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age48_seed42.png",
+    "size_bytes": 460314,
+    "sha256": "4f0ec867d06d697a7592085935c56e49cd58c3573ed72d51171049e6eda27855"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age50_seed42017.png",
+    "size_bytes": 426900,
+    "sha256": "44ac0da6dbbd2d7aaa4be3688e4d8e5f0bbd654979a90e92059bf3964347b793"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age60_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age60_seed42.png",
+    "size_bytes": 460441,
+    "sha256": "b1f3534545447b238431d204ee789305229f1844ec14ef119f3083ad0b08b563"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age70_seed42.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age70_seed42.png",
+    "size_bytes": 462827,
+    "sha256": "17ccb75ff102de27353d1b4b96e07d5e5a378c1352f730ce5664cf72527a064a"
+  },
+  "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID001_RAJESH_KHANNA_structured_prompt_age70_seed42017.png",
+    "size_bytes": 427102,
+    "sha256": "c945bb36945219523092987a2b36f60a4af9f79967a3ddd9acc5b75f734fcdfa"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age12_seed42017.png",
+    "size_bytes": 328954,
+    "sha256": "6342c992535be39f26de0703a606781eae6f04b0ceb131addb48c03fea433a64"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age2_seed42017.png",
+    "size_bytes": 328536,
+    "sha256": "8cb2ac3eb05aa9a228928f6ddcae08474f64a22a0aeb84163fdc322193e709b2"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42.png",
+    "size_bytes": 333720,
+    "sha256": "563da388e6b71f5af89e5c66fba25dc9c484918d87037d4552fd52b043230a21"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age35_seed42017.png",
+    "size_bytes": 329345,
+    "sha256": "44152aa1cf3b3189802c8943eb129c2ccfe004cf9ca80dd482f80bae55582e91"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age37_seed42.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age37_seed42.png",
+    "size_bytes": 392151,
+    "sha256": "c41a846f4e7fe3d720d7b4ad02bc8d51969e3d9bc1c95bfe9c5d9e7f4fd7882c"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42.png",
+    "size_bytes": 333976,
+    "sha256": "e6bed776c5f0cb1ff9252f0f7225143e062bdaaac4b7c214889e9a156755caa1"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age50_seed42017.png",
+    "size_bytes": 329255,
+    "sha256": "9dd8122253ed3e92e9ed1e119e152e6f13daae8abb561f993d3741b8783abd72"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_age70_seed42017.png",
+    "size_bytes": 331186,
+    "sha256": "07eaf3fc6394b8af8ffeeb4ff33a9d6eb6d34ecbec5c6236d449a13b12f4da64"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_cyclic_recon_age22_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_adaptive_control_cyclic_recon_age22_seed42017.png",
+    "size_bytes": 332974,
+    "sha256": "2645bdeeb1fb4ec96b1fe2b9c9b0ad6863dad4d1886ac589ff22e97fe1848bb2"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age12_seed42017.png",
+    "size_bytes": 328799,
+    "sha256": "3c2b594633b7d6c3dca882d7e65364f5c86b245a9f79ac504d18e22dc0f8e09e"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age2_seed42017.png",
+    "size_bytes": 328716,
+    "sha256": "b62a80ae4cf0a3028d0f72a95467b75cf4bbad139a6c6eb10820739f427fb724"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age35_seed42017.png",
+    "size_bytes": 329014,
+    "sha256": "b68d8e0f943eb7e39a6361b41be362daddfc012ff0a6ff7c2eff0af4d01d7c9a"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age50_seed42017.png",
+    "size_bytes": 329224,
+    "sha256": "b22e319a022fede1cb8e48dccf0a622243ab6d3c9c894be869a7888dcf1e0617"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_generic_baseline_age70_seed42017.png",
+    "size_bytes": 329355,
+    "sha256": "cc0a66ccaecf6e7df8bc8e06a7aa39cf501ec5d0e49c58dafeebb6eaaabad8c9"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_source_reference.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_source_reference.png",
+    "size_bytes": 70864,
+    "sha256": "f9a1d2008a9288bc9ba35712ac29187256e6758af995e30a18cd94288def6ad1"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age12_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age12_seed42017.png",
+    "size_bytes": 328442,
+    "sha256": "00a3b11d9aa2901751551f2daf76fc2f85587b842e95e1d49a887f8c3aa4f32c"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age2_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age2_seed42017.png",
+    "size_bytes": 328505,
+    "sha256": "bb8c23f9d2d8940fc7c9deb0ed0d99b001e0640e288d3570ad5c33572635bde4"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age35_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age35_seed42017.png",
+    "size_bytes": 329224,
+    "sha256": "74f40d78e82abf3097fbccd7d4a4afc779afa22a0d84fdeedc902c6304c70c4e"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age37_seed49.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age37_seed49.png",
+    "size_bytes": 334731,
+    "sha256": "de0b592e40f40ba616d42f98f0467dd04a322cac712e5e8af659afddc1b1a3c8"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age50_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age50_seed42017.png",
+    "size_bytes": 329280,
+    "sha256": "0e92b594797a09b01332e8fc230bb3a66a218706358d6f657567bb0721cfc912"
+  },
+  "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age70_seed42017.png": {
+    "relative_path": "03_Generated_Images/ID009_DEEPIKA_PADUKONE_structured_prompt_age70_seed42017.png",
+    "size_bytes": 329445,
+    "sha256": "52155bd654feb1b573cba53dd4ae4e75de1dc18ecc40bfac11888e20b561ebcf"
+  },
+  "03_Generated_Images/IMAGE_CATALOG.csv": {
+    "relative_path": "03_Generated_Images/IMAGE_CATALOG.csv",
+    "size_bytes": 13134,
+    "sha256": "92f03d75383eb92c80ce432acab980758f47c29c652883ee58f0e27ecbb66ecb"
+  },
+  "03_Generated_Images/IMAGE_CATALOG.md": {
+    "relative_path": "03_Generated_Images/IMAGE_CATALOG.md",
+    "size_bytes": 29072,
+    "sha256": "7ea1ac173e28d6ad7f844b461bcaab647bd2d5c4e8cf9f2141281d4fa9b451c5"
+  },
+  "03_Generated_Images/SYNTH_ID_2024_adaptive_control_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/SYNTH_ID_2024_adaptive_control_age45_seed42.png",
+    "size_bytes": 374513,
+    "sha256": "8e3d0f23ec946429dc7f8113a0bfa2169968db28c665e229785e54f4b6902cf9"
+  },
+  "03_Generated_Images/SYNTH_ID_2024_adaptive_control_age68_seed42.png": {
+    "relative_path": "03_Generated_Images/SYNTH_ID_2024_adaptive_control_age68_seed42.png",
+    "size_bytes": 376846,
+    "sha256": "f0f3d5633f1d4e3baae7901cf2c0940e2ffaf5d9970f749c30a29bccb10d7fde"
+  },
+  "03_Generated_Images/SYNTH_ID_2024_source_reference.png": {
+    "relative_path": "03_Generated_Images/SYNTH_ID_2024_source_reference.png",
+    "size_bytes": 372397,
+    "sha256": "e2ca8b69874f9d195a691c82cd69aa277a4ab99d02c2d6a8ca12188779556406"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age30_seed42.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age30_seed42.png",
+    "size_bytes": 232102,
+    "sha256": "f90fed1a252b76ac60cd79754a7878a52bcee97075d15bb50abe4c5a3cc6c902"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age45_seed42.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age45_seed42.png",
+    "size_bytes": 234836,
+    "sha256": "0e5dcb742dc16f4134b6e7f0251cae9894194dfe66aeb3e1d7b1981f043c333d"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age49_seed42.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_age49_seed42.png",
+    "size_bytes": 237254,
+    "sha256": "9a2aeed80aec8546e1dab5186f713035ee6a7f366ebd25987ce02e20e0a402c1"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_cyclic_recon_age19_seed42.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_adaptive_control_cyclic_recon_age19_seed42.png",
+    "size_bytes": 243573,
+    "sha256": "4524871b862ea249f3d49f39077365607a080f2b48c3a9289273732c8104e719"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_source_reference.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_source_reference.png",
+    "size_bytes": 563902,
+    "sha256": "45a17a13cdfdd1a820a6ad463b75412d07ef77ad4cbf7831a9987b3dd88077c7"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_structured_prompt_age30_seed41.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_structured_prompt_age30_seed41.png",
+    "size_bytes": 373796,
+    "sha256": "9ac6d7005bf552115c67dbdd7e069f7fae819bb63cfbdf805b7cb99eac22ab72"
+  },
+  "03_Generated_Images/UPLOAD_HRK_ea7e3a97_structured_prompt_age49_seed42.png": {
+    "relative_path": "03_Generated_Images/UPLOAD_HRK_ea7e3a97_structured_prompt_age49_seed42.png",
+    "size_bytes": 234952,
+    "sha256": "a9a48f5b521804de7185ea26709b31534fceb8debbe64822be41132ec760d5d2"
+  },
+  "03_Generated_Images/benchmark_source_identity.png": {
+    "relative_path": "03_Generated_Images/benchmark_source_identity.png",
+    "size_bytes": 372397,
+    "sha256": "e2ca8b69874f9d195a691c82cd69aa277a4ab99d02c2d6a8ca12188779556406"
+  },
+  "04_Metrics_and_Tables/ABLATION_METRICS_TABLE.md": {
+    "relative_path": "04_Metrics_and_Tables/ABLATION_METRICS_TABLE.md",
+    "size_bytes": 6585,
+    "sha256": "36dabc1c318c9d9c8fe8ed63afa29ab0340b9ed0a8c7d4db4729ca7a6b7ce987"
+  },
+  "04_Metrics_and_Tables/QUANTITATIVE_METRICS_SUMMARY.md": {
+    "relative_path": "04_Metrics_and_Tables/QUANTITATIVE_METRICS_SUMMARY.md",
+    "size_bytes": 4484,
+    "sha256": "6045445e04a94cf5baa364645ebd2c88cc44512eaddbc8ff63cfbd2c6fd83d8b"
+  },
+  "04_Metrics_and_Tables/TABLE_4_1_CELEBA_HQ.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_1_CELEBA_HQ.csv",
+    "size_bytes": 949,
+    "sha256": "51529c972076640933a9bcf51852ac91a126e11570303660be4a271e35cc5a6c"
+  },
+  "04_Metrics_and_Tables/TABLE_4_1_CELEBA_HQ.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_1_CELEBA_HQ.png",
+    "size_bytes": 272643,
+    "sha256": "6b38e397fcf29cd1ed7f8641f6b0697be7038530e44200d11fa582e837e87018"
+  },
+  "04_Metrics_and_Tables/TABLE_4_1_FFHQ_AGING.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_1_FFHQ_AGING.csv",
+    "size_bytes": 489,
+    "sha256": "da936f67fb89c412829df3923c94966a7588e73924ba03f5814bbb7aa0086d69"
+  },
+  "04_Metrics_and_Tables/TABLE_4_1_FFHQ_AGING.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_1_FFHQ_AGING.png",
+    "size_bytes": 170971,
+    "sha256": "140b23e36e21bcd78066979c6ed421b69f5958a3df5df599a2b224c7b43ae897"
+  },
+  "04_Metrics_and_Tables/TABLE_4_2_IDENTITY_SIMILARITY.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_2_IDENTITY_SIMILARITY.csv",
+    "size_bytes": 834,
+    "sha256": "930cd477715ebea389b09336bb098e50ae2a9b2c0ceccd5eb92d4f7b93865ea0"
+  },
+  "04_Metrics_and_Tables/TABLE_4_2_IDENTITY_SIMILARITY.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_2_IDENTITY_SIMILARITY.png",
+    "size_bytes": 199215,
+    "sha256": "d258c436f7968bf093b6fea8a9d6db9d8e3cc15d3b87f03d784d8f2be3c859ff"
+  },
+  "04_Metrics_and_Tables/TABLE_4_3_ABLATION_STUDY.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_3_ABLATION_STUDY.csv",
+    "size_bytes": 604,
+    "sha256": "1bafacebdd27383de6217b53f8ac62fdea71eeb47c0879c99983593e41c78137"
+  },
+  "04_Metrics_and_Tables/TABLE_4_3_ABLATION_STUDY.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_3_ABLATION_STUDY.png",
+    "size_bytes": 177733,
+    "sha256": "67a45ca163577ecfaf81a6d5695f02ba529132b3ddd5b1203e70780ce9770f4c"
+  },
+  "04_Metrics_and_Tables/TABLE_4_BIOMETRIC_FNMR.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_BIOMETRIC_FNMR.csv",
+    "size_bytes": 441,
+    "sha256": "1b6bddddce30554d1027475367e0b7a0ca54faf3727aa1d4912698fe17efd79d"
+  },
+  "04_Metrics_and_Tables/TABLE_4_BIOMETRIC_FNMR.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_4_BIOMETRIC_FNMR.png",
+    "size_bytes": 151939,
+    "sha256": "3897ae64424ef09fd944953a2a2c96d8c1042434d86920c09bdc66998bacc6e3"
+  },
+  "04_Metrics_and_Tables/TABLE_AGEWISE_RESULTS_RENDERED.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_AGEWISE_RESULTS_RENDERED.png",
+    "size_bytes": 141366,
+    "sha256": "d9d583b76438802c8003d61b806c12de012847379d08ba8b23d3173e2bf1098b"
+  },
+  "04_Metrics_and_Tables/TABLE_IDENTITY_SIMILARITY_RENDERED.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_IDENTITY_SIMILARITY_RENDERED.png",
+    "size_bytes": 160927,
+    "sha256": "ff5bde99cafb1b0c42eb51d64bfcfbec6a11a18653ed971834d56ce11714d8d6"
+  },
+  "04_Metrics_and_Tables/TABLE_METHOD_COMPARISON_RENDERED.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_METHOD_COMPARISON_RENDERED.png",
+    "size_bytes": 132012,
+    "sha256": "39f40df702a0b296ed45fb05bc197d5fa12c164ab02fd90a5f37993c4b594163"
+  },
+  "04_Metrics_and_Tables/TABLE_S4_INVERSION_EDITING.csv": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_S4_INVERSION_EDITING.csv",
+    "size_bytes": 1048,
+    "sha256": "8c7e70f7364aebfeb5d3944df2c10ebd8dd14932adb6472725561135565cbf55"
+  },
+  "04_Metrics_and_Tables/TABLE_S4_INVERSION_EDITING.png": {
+    "relative_path": "04_Metrics_and_Tables/TABLE_S4_INVERSION_EDITING.png",
+    "size_bytes": 306111,
+    "sha256": "d02b4ef2dfdeb2257524d445ed0ba22ccc7911fc579b081199dd24575417644a"
+  },
+  "04_Metrics_and_Tables/age_wise_results.csv": {
+    "relative_path": "04_Metrics_and_Tables/age_wise_results.csv",
+    "size_bytes": 848,
+    "sha256": "8aa59883eec30d0091acba4e8e299de7b5c4649451be8e3b41cdeb4564fd0d27"
+  },
+  "04_Metrics_and_Tables/agewise_adaptive_colab.csv": {
+    "relative_path": "04_Metrics_and_Tables/agewise_adaptive_colab.csv",
+    "size_bytes": 394,
+    "sha256": "309daa5109e42062bfcbcaca32403ad768afa5c0ac0ab620d693dda244405221"
+  },
+  "04_Metrics_and_Tables/aggregate_by_condition.csv": {
+    "relative_path": "04_Metrics_and_Tables/aggregate_by_condition.csv",
+    "size_bytes": 433,
+    "sha256": "f684312f6bb8a0d4aaa42baff11570f4ac8eb51e77cd35f2bfb50419c4c8775f"
+  },
+  "04_Metrics_and_Tables/aggregate_metrics.csv": {
+    "relative_path": "04_Metrics_and_Tables/aggregate_metrics.csv",
+    "size_bytes": 474,
+    "sha256": "eba9d1976c598ad5b7de5877b000f1beefed3f19e2f27260694a7856cb111c79"
+  },
+  "04_Metrics_and_Tables/experiment_log.csv": {
+    "relative_path": "04_Metrics_and_Tables/experiment_log.csv",
+    "size_bytes": 22196,
+    "sha256": "7231892039758a0978b78da8f8ea163f19aafe3c29c9bb31e7a15a783eb9dbdf"
+  },
+  "04_Metrics_and_Tables/failed_runs.csv": {
+    "relative_path": "04_Metrics_and_Tables/failed_runs.csv",
+    "size_bytes": 1347,
+    "sha256": "3c3fe35edc7782f0f23f133b9d99f24dd8270386a1a1d26d4e3a5cfcefcfa3bc"
+  },
+  "04_Metrics_and_Tables/method_comparison.csv": {
+    "relative_path": "04_Metrics_and_Tables/method_comparison.csv",
+    "size_bytes": 1315,
+    "sha256": "6cdb71031ead665372e1575f2ea62f02b8bdb4040727ab50cc4c034b8087798b"
+  },
+  "04_Metrics_and_Tables/metrics_summary.md": {
+    "relative_path": "04_Metrics_and_Tables/metrics_summary.md",
+    "size_bytes": 5541,
+    "sha256": "b6f1f5ebb36523bf96c730509d21339ecf2d2e967396de86614acfd16426bef0"
+  },
+  "04_Metrics_and_Tables/paper_reported_results.csv": {
+    "relative_path": "04_Metrics_and_Tables/paper_reported_results.csv",
+    "size_bytes": 1628,
+    "sha256": "11d43f5de216d81de854253a5877b27eab16bb26432fb508520cf28d83942598"
+  },
+  "04_Metrics_and_Tables/per_image_metrics.csv": {
+    "relative_path": "04_Metrics_and_Tables/per_image_metrics.csv",
+    "size_bytes": 40214,
+    "sha256": "8402176e54b2a3191a5837cfb9be49e855f1e9503ba328543663cdfd08c8af97"
+  },
+  "04_Metrics_and_Tables/subject_condition_summary.csv": {
+    "relative_path": "04_Metrics_and_Tables/subject_condition_summary.csv",
+    "size_bytes": 756,
+    "sha256": "e88efe2235b002f44f816e43ac117dbb2982316e65691eb709a1bc3d5d21171f"
+  },
+  "05_Figures_and_Ablations/FIGURES_AND_ABLATIONS_INDEX.md": {
+    "relative_path": "05_Figures_and_Ablations/FIGURES_AND_ABLATIONS_INDEX.md",
+    "size_bytes": 14939,
+    "sha256": "a2412b3d01fc423fefbcbe0be578db6ffc194025fd6b6b6f4069d0bd086d96fd"
+  },
+  "05_Figures_and_Ablations/FIG_01_METHOD_COMPARISON_BAR.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_01_METHOD_COMPARISON_BAR.png",
+    "size_bytes": 235104,
+    "sha256": "51a52d2db23af3426941e236cb185b17bbbf856fa00992bafe64713f06a19557"
+  },
+  "05_Figures_and_Ablations/FIG_02_IDSIM_VS_TARGET_AGE.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_02_IDSIM_VS_TARGET_AGE.png",
+    "size_bytes": 168849,
+    "sha256": "5dca2a35b024a0129d8ee8d4e14daad3d4c4d0556cc4019cfb797296109ffdcd"
+  },
+  "05_Figures_and_Ablations/FIG_03_AGE_MAE_VS_TARGET_AGE.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_03_AGE_MAE_VS_TARGET_AGE.png",
+    "size_bytes": 147829,
+    "sha256": "27423476c4ee5ba9b8544ffd6dd9fe7cebf9e781b506af569e882958cd7b1736"
+  },
+  "05_Figures_and_Ablations/FIG_04_CPU_VS_GPU_LATENCY.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_04_CPU_VS_GPU_LATENCY.png",
+    "size_bytes": 101861,
+    "sha256": "b572ae36271f7ea793b259a03fd6eaac6818298e6c18dfc93a2f2e159ee53ad2"
+  },
+  "05_Figures_and_Ablations/FIG_05_COLAB_AGEWISE_BREAKDOWN.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_05_COLAB_AGEWISE_BREAKDOWN.png",
+    "size_bytes": 178015,
+    "sha256": "5441bbe24ae263b1429138dce2fd41b7ce06a1e7927970c5adfed35bcebb955f"
+  },
+  "05_Figures_and_Ablations/FIG_06_ADAPTIVE_SCALING_CURVES.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_06_ADAPTIVE_SCALING_CURVES.png",
+    "size_bytes": 251627,
+    "sha256": "fc4b3f658c040f8b036be4d62fe99ecadd89aebc282bf0fe6017f90b48ea44b4"
+  },
+  "05_Figures_and_Ablations/FIG_06_DEEPIKA_PADUKONE_STANDARDIZED_GRID.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_06_DEEPIKA_PADUKONE_STANDARDIZED_GRID.png",
+    "size_bytes": 4725359,
+    "sha256": "4ad2f0324a2c74d8559bb049611faeadfe8b2d67188d49721034d57d4ef4fd6d"
+  },
+  "05_Figures_and_Ablations/FIG_06_MAIN_RAJESH_KHANNA_STANDARDIZED_GRID.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_06_MAIN_RAJESH_KHANNA_STANDARDIZED_GRID.png",
+    "size_bytes": 6024450,
+    "sha256": "3a7696fad2a4495416e921164dd6d87ad7e3917a991a6e2629ff2be3068ed543"
+  },
+  "05_Figures_and_Ablations/FIG_07_CYCLIC_SIMILARITY.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_07_CYCLIC_SIMILARITY.png",
+    "size_bytes": 146383,
+    "sha256": "737e26d85916f9ec7d185c0b197330ad3e263ef5c5c23b2da376e62b28bd3d38"
+  },
+  "05_Figures_and_Ablations/FIG_08_STRENGTH_VS_IDSIM.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_08_STRENGTH_VS_IDSIM.png",
+    "size_bytes": 136445,
+    "sha256": "713c3b88a84b47ce14f5eba79c0c1af69a8bbf7428a754695acb71dc2b101611"
+  },
+  "05_Figures_and_Ablations/FIG_09_ABLATION_HEATMAP.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_09_ABLATION_HEATMAP.png",
+    "size_bytes": 152506,
+    "sha256": "8681e43b008ccc4f6e7772cbd600ff4118478613198799ae3c8d6cf44e69e1e1"
+  },
+  "05_Figures_and_Ablations/FIG_10_PARETO_FRONTIER.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_10_PARETO_FRONTIER.png",
+    "size_bytes": 185281,
+    "sha256": "7c01869cbdd3392c6c7cc009857e8eefac026268802b71639e01df3db33e3109"
+  },
+  "05_Figures_and_Ablations/FIG_11_RK_AGING_STRIP.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_11_RK_AGING_STRIP.png",
+    "size_bytes": 1193774,
+    "sha256": "2b33c321b8ec8b1b9f2099f26c4190fb612d608eb2fcfc090f1211f388bfa15f"
+  },
+  "05_Figures_and_Ablations/FIG_12_DP_AGING_STRIP.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_12_DP_AGING_STRIP.png",
+    "size_bytes": 1071101,
+    "sha256": "9ce1f1ff24dc2122ad477734abbc652a50cf182e4135a5a9553153a2c9c54bb2"
+  },
+  "05_Figures_and_Ablations/FIG_13_THREE_CONDITION_COMPARISON.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_13_THREE_CONDITION_COMPARISON.png",
+    "size_bytes": 1834276,
+    "sha256": "5587ef6a20a2d532857e979cecbb53ca6bdeff6c66c795bffdcf69bfe7c55e8a"
+  },
+  "05_Figures_and_Ablations/FIG_14_SCHEDULER_COMPARISON.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_14_SCHEDULER_COMPARISON.png",
+    "size_bytes": 414227,
+    "sha256": "a136a26e9eaf03ac0cb31ff99338bc72a3be03f2bb0c0962a93413bbe51d086c"
+  },
+  "05_Figures_and_Ablations/FIG_S08_XI_SENSITIVITY.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_S08_XI_SENSITIVITY.png",
+    "size_bytes": 157815,
+    "sha256": "b31cdd4fd113b117113c83a9a635241d8890119074240cf7e532384d7cc1c6d5"
+  },
+  "05_Figures_and_Ablations/FIG_S09_ETA_TH_SENSITIVITY.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_S09_ETA_TH_SENSITIVITY.png",
+    "size_bytes": 148349,
+    "sha256": "8bfe52a442763b8bbb1a2871ceae365d727f4d8def672013e16d28ebacfdb271"
+  },
+  "05_Figures_and_Ablations/FIG_S10_SCHEDULE_SENSITIVITY.png": {
+    "relative_path": "05_Figures_and_Ablations/FIG_S10_SCHEDULE_SENSITIVITY.png",
+    "size_bytes": 150837,
+    "sha256": "a4d2a3c9c7ca5d64cd2582ee3cc240bb2166c1a43686007361dac5592d86def2"
+  },
+  "05_Figures_and_Ablations/GRID_ID001_RAJESH_KHANNA_adaptive_control_MultiAge.png": {
+    "relative_path": "05_Figures_and_Ablations/GRID_ID001_RAJESH_KHANNA_adaptive_control_MultiAge.png",
+    "size_bytes": 529583,
+    "sha256": "2a2dc758eb6a0596ab6b794a336d07cb5c0bd4e59fd7fb1c49e5e1282c7adc8c"
+  },
+  "05_Figures_and_Ablations/GRID_ID001_RAJESH_KHANNA_generic_baseline_MultiAge.png": {
+    "relative_path": "05_Figures_and_Ablations/GRID_ID001_RAJESH_KHANNA_generic_baseline_MultiAge.png",
+    "size_bytes": 1556509,
+    "sha256": "43d5274177f9168311dbcaf93557924259030117fd51373bd78ad2d0b5b7ddde"
+  },
+  "05_Figures_and_Ablations/GRID_ID009_DEEPIKA_PADUKONE_generic_baseline_MultiAge.png": {
+    "relative_path": "05_Figures_and_Ablations/GRID_ID009_DEEPIKA_PADUKONE_generic_baseline_MultiAge.png",
+    "size_bytes": 1194307,
+    "sha256": "d125b6c820732ed61e5b10485b742e04eefd79e4f7d4b13c044a5cc05201cecf"
+  },
+  "05_Figures_and_Ablations/ID001_RAJESH_KHANNA_three_condition_comparison.png": {
+    "relative_path": "05_Figures_and_Ablations/ID001_RAJESH_KHANNA_three_condition_comparison.png",
+    "size_bytes": 1474073,
+    "sha256": "cb2eda01bdf380a9f83238a3e7ba769d3ec633cae997fe07c0615f83644b684f"
+  },
+  "05_Figures_and_Ablations/ID009_DEEPIKA_PADUKONE_three_condition_comparison.png": {
+    "relative_path": "05_Figures_and_Ablations/ID009_DEEPIKA_PADUKONE_three_condition_comparison.png",
+    "size_bytes": 1252329,
+    "sha256": "c1d0094a11fbcdc4e4c5f58e1e8c7225f73b7c37d95e540b2e1d3433aa8eaa5f"
+  },
+  "05_Figures_and_Ablations/diag_HRK_DDIM_steps15_s0.45_seed41.png": {
+    "relative_path": "05_Figures_and_Ablations/diag_HRK_DDIM_steps15_s0.45_seed41.png",
+    "size_bytes": 239593,
+    "sha256": "97547a787a37e1923eea5e6948f0f3d1b0b5e286a1912952c4c5f1adb8449011"
+  },
+  "05_Figures_and_Ablations/diag_HRK_DPMSolverMultistep_Karras_steps15_s0.45_seed41.png": {
+    "relative_path": "05_Figures_and_Ablations/diag_HRK_DPMSolverMultistep_Karras_steps15_s0.45_seed41.png",
+    "size_bytes": 225791,
+    "sha256": "dd87cbbac5b78235900fc84f87dcda269c7a0e44f6ce6c7e92337d6b3e5136af"
+  },
+  "05_Figures_and_Ablations/diag_HRK_EulerDiscrete_steps15_s0.45_seed41.png": {
+    "relative_path": "05_Figures_and_Ablations/diag_HRK_EulerDiscrete_steps15_s0.45_seed41.png",
+    "size_bytes": 221364,
+    "sha256": "d703d925e7f2216a25e001bcc491e3acca3edd520b3f1d7b4f763c656d4eb692"
+  },
+  "05_Figures_and_Ablations/diag_HRK_PNDM_default_steps15_s0.45_seed41.png": {
+    "relative_path": "05_Figures_and_Ablations/diag_HRK_PNDM_default_steps15_s0.45_seed41.png",
+    "size_bytes": 333526,
+    "sha256": "9a26f955d6bd7d1edcc710842ff253b27f5f36ef1e1ec6bab53bfd5a032fcf50"
+  },
+  "06_Paper_and_Supplementary/DISCUSSION.md": {
+    "relative_path": "06_Paper_and_Supplementary/DISCUSSION.md",
+    "size_bytes": 5357,
+    "sha256": "2e859c396b08394b932427f9f147ae54913c1a7415154c9d907bbed4ceccb68a"
+  },
+  "06_Paper_and_Supplementary/ETHICAL_CONSIDERATIONS.md": {
+    "relative_path": "06_Paper_and_Supplementary/ETHICAL_CONSIDERATIONS.md",
+    "size_bytes": 3843,
+    "sha256": "af51b40d80b1d033b0161c99779b06becc9e6d5ce4d03d58330c9ad9c43ac9b1"
+  },
+  "06_Paper_and_Supplementary/FACETT_BASE_PAPER_SUMMARY.md": {
+    "relative_path": "06_Paper_and_Supplementary/FACETT_BASE_PAPER_SUMMARY.md",
+    "size_bytes": 7622,
+    "sha256": "b12d91ce6c910d30909f8d985f9720adde2ec1273da39dcf6b60b7a0e0dce4ec"
+  },
+  "06_Paper_and_Supplementary/FACETT_REQUIREMENTS_MATRIX.md": {
+    "relative_path": "06_Paper_and_Supplementary/FACETT_REQUIREMENTS_MATRIX.md",
+    "size_bytes": 8759,
+    "sha256": "050ed2b0fd0e272bf3b9dc71a3c0d40d7128fa3faf4b6f113c11328091e7f7d2"
+  },
+  "06_Paper_and_Supplementary/LIMITATIONS.md": {
+    "relative_path": "06_Paper_and_Supplementary/LIMITATIONS.md",
+    "size_bytes": 4303,
+    "sha256": "1d47b76bb876df13e8872d3ae5d537bbf5d513e10b676c93d1cfe674fa79a8df"
+  },
+  "06_Paper_and_Supplementary/MINI_PROJECT_2_RESEARCH_REPORT.md": {
+    "relative_path": "06_Paper_and_Supplementary/MINI_PROJECT_2_RESEARCH_REPORT.md",
+    "size_bytes": 22864,
+    "sha256": "8ed517882aa727f4e85f9b720643551e8e62652ea97fac1034d5e43f8e99b6e8"
+  },
+  "06_Paper_and_Supplementary/MINI_PROJECT_2_SLIDES_OUTLINE.md": {
+    "relative_path": "06_Paper_and_Supplementary/MINI_PROJECT_2_SLIDES_OUTLINE.md",
+    "size_bytes": 16617,
+    "sha256": "b86a1b1d4ea2ca1cb986a166583635014cc8db39cf11300091856d7cb0040839"
+  },
+  "06_Paper_and_Supplementary/progress_report.md": {
+    "relative_path": "06_Paper_and_Supplementary/progress_report.md",
+    "size_bytes": 11436,
+    "sha256": "e8e2310c7d61b81772205db3e41fade001205f97af8f961e3138aa6fedb3397e"
+  },
+  "06_Paper_and_Supplementary/results.md": {
+    "relative_path": "06_Paper_and_Supplementary/results.md",
+    "size_bytes": 6383,
+    "sha256": "849a4ad4c7d69fa6d743652c520bbdd60e8a0db08e8ceea011200054bdea9a10"
+  },
+  "06_Paper_and_Supplementary/supplementary_checklist.md": {
+    "relative_path": "06_Paper_and_Supplementary/supplementary_checklist.md",
+    "size_bytes": 7079,
+    "sha256": "948727157e222de42cdec1aaca9ded22ef7b719fbbe0aefb862327dca9a9496e"
+  },
+  "06_Paper_and_Supplementary/technical_report.md": {
+    "relative_path": "06_Paper_and_Supplementary/technical_report.md",
+    "size_bytes": 19527,
+    "sha256": "756f4af808a623778b03fdc5142cd552f1eae79641f380d8672f75e99731b456"
+  },
+  "07_Reproducibility_and_Logs/REPRODUCIBILITY_VERIFICATION_LOG.md": {
+    "relative_path": "07_Reproducibility_and_Logs/REPRODUCIBILITY_VERIFICATION_LOG.md",
+    "size_bytes": 4570,
+    "sha256": "583816d863311c428d31a09a598b66300892e9eafd09f62d7ebd0a914156c352"
+  },
+  "07_Reproducibility_and_Logs/SYNC_MANIFEST_LATEST.md": {
+    "relative_path": "07_Reproducibility_and_Logs/SYNC_MANIFEST_LATEST.md",
+    "size_bytes": 13783,
+    "sha256": "6011fbf0f65dfd40cfe1a82284b24bb3a50155064be37d0bbeef122a2f8b73f2"
+  },
+  "07_Reproducibility_and_Logs/colab_runner.ipynb": {
+    "relative_path": "07_Reproducibility_and_Logs/colab_runner.ipynb",
+    "size_bytes": 12223,
+    "sha256": "24e710d9d03d1482055d0890e429398f3b6749b22eb3547a86088688dd6d1ae1"
+  },
+  "07_Reproducibility_and_Logs/environment_versions.txt": {
+    "relative_path": "07_Reproducibility_and_Logs/environment_versions.txt",
+    "size_bytes": 879,
+    "sha256": "baa58f2fa8e3b2851dbf8201dd0b7d7c5864b1c250a4813a98e519c12b22f0f8"
+  },
+  "07_Reproducibility_and_Logs/experiment_log.csv": {
+    "relative_path": "07_Reproducibility_and_Logs/experiment_log.csv",
+    "size_bytes": 40214,
+    "sha256": "8402176e54b2a3191a5837cfb9be49e855f1e9503ba328543663cdfd08c8af97"
+  },
+  "07_Reproducibility_and_Logs/experiment_log.jsonl": {
+    "relative_path": "07_Reproducibility_and_Logs/experiment_log.jsonl",
+    "size_bytes": 66328,
+    "sha256": "d7f24944297d5990d11e2edffa9d07e2512effaaa292f60d9e32422b3bb88e3d"
+  },
+  "07_Reproducibility_and_Logs/failed_runs.csv": {
+    "relative_path": "07_Reproducibility_and_Logs/failed_runs.csv",
+    "size_bytes": 1347,
+    "sha256": "3c3fe35edc7782f0f23f133b9d99f24dd8270386a1a1d26d4e3a5cfcefcfa3bc"
+  },
+  "07_Reproducibility_and_Logs/requirements-colab.txt": {
+    "relative_path": "07_Reproducibility_and_Logs/requirements-colab.txt",
+    "size_bytes": 565,
+    "sha256": "ef094725ba6c8a55c5408d78cf657df75d067e6b7f6a23c479bce9d2135f9603"
+  },
+  "07_Reproducibility_and_Logs/requirements.txt": {
+    "relative_path": "07_Reproducibility_and_Logs/requirements.txt",
+    "size_bytes": 473,
+    "sha256": "0a67f0c38d96d81c224022b241e21dcd3681c5e99047bc5f424353f3eb8e78b3"
+  },
+  "07_Reproducibility_and_Logs/test_results.txt": {
+    "relative_path": "07_Reproducibility_and_Logs/test_results.txt",
+    "size_bytes": 6131,
+    "sha256": "cddcebacdce011c596d6d6383edbb6c61b467a2dca3fe3afad8d57bbb35678af"
+  },
+  "07_Reproducibility_and_Logs/training_log.csv": {
+    "relative_path": "07_Reproducibility_and_Logs/training_log.csv",
+    "size_bytes": 994,
+    "sha256": "02fb8f3867612c5b11f723fb21e0747b6c01042aac0bf27897cd70237d39dee4"
+  },
+  "08_Future_Work/BLOCKED_EXPERIMENTS.md": {
+    "relative_path": "08_Future_Work/BLOCKED_EXPERIMENTS.md",
+    "size_bytes": 4849,
+    "sha256": "a10ee3585f869cc4445b53e3cd19bf9e601d85068748a186500bb8d62fbe0a2c"
+  },
+  "08_Future_Work/FUTURE_WORK_QUEUE.md": {
+    "relative_path": "08_Future_Work/FUTURE_WORK_QUEUE.md",
+    "size_bytes": 7441,
+    "sha256": "92346e703d8df942b8c8448b1ac45facae602d334e7017fafdb9cae367011809"
+  }
+}

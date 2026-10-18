@@ -1,0 +1,75 @@
+======================================================================
+AgeWeaver Automated Test Suite Execution Record
+Date: 18 October 2026
+Runner: python -m unittest discover tests -v
+Environment: Python 3.11 (.venv), PyTorch, Torchvision, Diffusers, InsightFace
+======================================================================
+
+test_default_config_valid (test_config.TestConfig.test_default_config_valid) ... ok
+test_invalid_image_size (test_config.TestConfig.test_invalid_image_size) ... ok
+test_invalid_prompt_mode (test_config.TestConfig.test_invalid_prompt_mode) ... ok
+test_invalid_strength (test_config.TestConfig.test_invalid_strength) ... ok
+test_scheduler_type_configuration (test_config.TestConfig.test_scheduler_type_configuration) ... ok
+test_yaml_roundtrip (test_config.TestConfig.test_yaml_roundtrip) ... ok
+test_audit_dataset_distinction (test_dataset.TestDataset.test_audit_dataset_distinction) ... ok
+test_corrupt_image_validation_fails (test_dataset.TestDataset.test_corrupt_image_validation_fails) ... ok
+test_get_celebrity_unknown_raises_keyerror (test_dataset.TestDataset.test_get_celebrity_unknown_raises_keyerror) ... ok
+test_get_celebrity_valid (test_dataset.TestDataset.test_get_celebrity_valid) ... ok
+test_load_manifest_entries (test_dataset.TestDataset.test_load_manifest_entries) ... ok
+test_resolve_direct_url (test_dataset.TestDataset.test_resolve_direct_url) ... ok
+test_retrieves_existing_downloaded_image (test_dataset.TestDataset.test_retrieves_existing_downloaded_image) ... ok
+test_strict_no_silent_fallback_missing_image (test_dataset.TestDataset.test_strict_no_silent_fallback_missing_image) ... ok
+test_verified_young_reference_has_young_age (test_dataset.TestDataset.test_verified_young_reference_has_young_age) ... ok
+test_manifest_file_exists (test_dataset_manifest.TestDatasetManifest.test_manifest_file_exists) ... ok
+test_manifest_schema_and_integrity (test_dataset_manifest.TestDatasetManifest.test_manifest_schema_and_integrity) ... ok
+test_rajesh_khanna_case_study_present (test_dataset_manifest.TestDatasetManifest.test_rajesh_khanna_case_study_present) ... ok
+test_cosine_similarity_identical (test_metrics.TestMetrics.test_cosine_similarity_identical) ... ok
+test_cosine_similarity_missing_embedding (test_metrics.TestMetrics.test_cosine_similarity_missing_embedding) ... ok
+test_cosine_similarity_opposite (test_metrics.TestMetrics.test_cosine_similarity_opposite) ... ok
+test_cosine_similarity_orthogonal (test_metrics.TestMetrics.test_cosine_similarity_orthogonal) ... ok
+test_cyclic_similarity_display (test_metrics.TestMetrics.test_cyclic_similarity_display) ... ok
+test_evaluator_constructor_and_api (test_metrics.TestMetrics.test_evaluator_constructor_and_api) ... ok
+test_metrics_serialization (test_metrics.TestMetrics.test_metrics_serialization) ... ok
+test_missing_face_handling (test_metrics.TestMetrics.test_missing_face_handling) ... ok
+test_reference_identity_similarity_display (test_metrics.TestMetrics.test_reference_identity_similarity_display) ... ok
+test_reference_similarity_non_substitution (test_metrics.TestMetrics.test_reference_similarity_non_substitution) ... ok
+test_adaptive_parameters_bidirectional_symmetry (test_pipeline.TestPipeline.test_adaptive_parameters_bidirectional_symmetry) ... ok
+test_adaptive_parameters_max_delta_clamping (test_pipeline.TestPipeline.test_adaptive_parameters_max_delta_clamping) ... ok
+test_childhood_and_regression_prompts (test_pipeline.TestPipeline.test_childhood_and_regression_prompts) ... ok
+test_classify_transformation_directions (test_pipeline.TestPipeline.test_classify_transformation_directions) ... ok
+test_compute_adaptive_parameters_progression (test_pipeline.TestPipeline.test_compute_adaptive_parameters_progression) ... ok
+test_compute_adaptive_parameters_reconstruction_equal_age (test_pipeline.TestPipeline.test_compute_adaptive_parameters_reconstruction_equal_age) ... ok
+test_compute_adaptive_parameters_regression (test_pipeline.TestPipeline.test_compute_adaptive_parameters_regression) ... ok
+test_bracket_info (test_prompts.TestPrompts.test_bracket_info) ... ok
+test_generic_prompt (test_prompts.TestPrompts.test_generic_prompt) ... ok
+test_negative_prompt (test_prompts.TestPrompts.test_negative_prompt) ... ok
+test_structured_prompt (test_prompts.TestPrompts.test_structured_prompt) ... ok
+test_benchmark_archive_only_serves_matching_benchmark (test_studio_integrity.TestStudioIntegrity.test_benchmark_archive_only_serves_matching_benchmark) ... ok
+test_custom_upload_never_receives_benchmark_fallback (test_studio_integrity.TestStudioIntegrity.test_custom_upload_never_receives_benchmark_fallback) ... ok
+test_documented_vs_cnn_age_distinction (test_studio_integrity.TestStudioIntegrity.test_documented_vs_cnn_age_distinction) ... ok
+test_exact_screenshot_scenario_hrk_jpeg_no_generate (test_studio_integrity.TestStudioIntegrity.test_exact_screenshot_scenario_hrk_jpeg_no_generate) ... ok
+test_matching_upload_trial_accepted (test_studio_integrity.TestStudioIntegrity.test_matching_upload_trial_accepted) ... ok
+test_stale_celebrity_result_rejected_for_custom_upload (test_studio_integrity.TestStudioIntegrity.test_stale_celebrity_result_rejected_for_custom_upload) ... ok
+
+----------------------------------------------------------------------
+Ran 45 tests in 8.431s
+
+OK
+=================================================================
+ AgeWeaver Dataset Manifest Audit: data/dataset_manifest.csv
+=================================================================
+Manifest Rows Parsed   : 100
+Unique Identities      : 100
+Unique Image IDs       : 100
+Images Acquired (disk) : 2
+Schema Errors Found    : 0
+
+-----------------------------------------------------------------
+ SUMMARY AUDIT COUNTS
+-----------------------------------------------------------------
+1. Planned Identities Documented : 100
+2. Valid Manifest Entries        : 100
+3. Images Acquired on Disk       : 2
+4. Verified & Usable Faces       : 2
+5. Experimentally Included       : 2 (ID001_RAJESH_KHANNA, ID009_DEEPIKA_PADUKONE) + Synthetic Control
+=================================================================
